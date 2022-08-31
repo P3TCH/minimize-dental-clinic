@@ -147,8 +147,8 @@ app.post('/register_address', jsonParser , function (req, res, next) {
 
 app.post('/appointment_db', jsonParser , function (req, res, next) {
     connection.execute(
-        'INSERT INTO appointment (userid, docid, treatmentinfo, time, date, status) VALUES (?, ?, ?, ?, ?, ?)',
-        [req.body.userid, req.body.docid, req.body.treatmentinfo, req.body.time, req.body.date, req.body.status],
+        'INSERT INTO appointment (appid, userid, docid, treatmentinfo, price, time, date, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [0, req.body.userid, req.body.docid, req.body.treatmentinfo, 0 , req.body.time, req.body.date, req.body.status],
 
         function(err, results, fields) {
             if(err) {
