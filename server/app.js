@@ -170,18 +170,18 @@ app.post('/login_db', jsonParser , function (req, res, next) {
         function(err, users, fields) {
             if(err) {
                 res.json({status: 'error' , message: err});
-                console.log("Log Error")
+                console.log("Login Error")
                 return 0;
             }else if(users.length == 0){
                 res.json({status: 'error' , message: 'no user found'});
-                console.log("Log Error 2")
+                console.log("Login Error : no user found")
                 return 0;
             }else{
                 bcrypt.compare(req.body.password, users[0].password).then(function(isLogin) { //decode password
                     if (isLogin === true){
                         var token = jwt.sign({ userid: users[0].userid }, secret , { expiresIn: '1h'}); //create token
                         res.json({status: 'ok' , message: 'login success', type: users[0].type, token });
-                        console.log("Logined")
+                        console.log(`Logined from ${req.body.email}`);
                         return 0;
                     }else{
                         res.json({status: 'error' , message: 'wrong password'});
