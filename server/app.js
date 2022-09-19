@@ -170,9 +170,11 @@ app.post('/login_db', jsonParser , function (req, res, next) {
         function(err, users, fields) {
             if(err) {
                 res.json({status: 'error' , message: err});
+                console.log("Log Error")
                 return 0;
             }else if(users.length == 0){
                 res.json({status: 'error' , message: 'no user found'});
+                console.log("Log Error 2")
                 return 0;
             }else{
                 bcrypt.compare(req.body.password, users[0].password).then(function(isLogin) { //decode password
@@ -211,6 +213,30 @@ app.post('/doc_tocheck', jsonParser , function(req, res, next) {
         let userid_check = decoded.userid;
         connection.execute(
             `UPDATE appointment SET treatmentinfo = '${req.body.info}', price = '${req.body.price}', status = 'close', date = '${req.body.date}' WHERE appid = ${req.body.caseid};`,
+
+            function(err, results, fields) {
+                if(err) {
+                    res.json({status: 'error' , message: err});
+                    return 0;
+                }else{
+                    console.log(req.body)
+                    res.json({status: 'ok'});
+                    console.log('Edit Dentis')
+                }
+            }
+            );
+    } catch(err){
+        res.json({status:'error', message: err.message});
+    }
+});
+
+app.post('/confirm_app', jsonParser , function(req, res, next) {
+    try {
+        var checktoken = req.headers.authorization.split(' ')[1];
+        var decoded = jwt.verify(checktoken, secret);
+        let userid_check = decoded.userid;
+        connection.execute(
+            `UPDATE appointment SET status = 'open' WHERE appid = ${req.body.appid};`,
 
             function(err, results, fields) {
                 if(err) {

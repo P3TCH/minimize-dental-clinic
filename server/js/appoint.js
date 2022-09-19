@@ -58,7 +58,7 @@ function loaddoc(){
                     el.value = `${data_get.userid[i].userid}`;
                     document.getElementById('app_doctor').appendChild(el);
                 }
-                
+
 
             } else {
                 console.log('error:');
@@ -77,7 +77,7 @@ function addapp(){
     let docid = document.getElementById("app_doctor").value;
     let treatment = document.getElementById("app_arkarn").value;
 
-    data = {userid: userid, docid: docid, treatmentinfo: treatment, time: time, date: date, status: 'open'}
+    data = {userid: userid, docid: docid, treatmentinfo: treatment, time: time, date: date, status: 'waitting'}
 
     if(userid === '' || date === '' || time === '' || docid === '' || treatment === ''){
         alert('กรุณากรอกข้อมูลให้ครบถ้วน');
@@ -147,7 +147,7 @@ async function show_appointment(){
                             document.getElementById('pointed').appendChild(p);
                         }
                     }
-                    
+
 
                 } else {
 
@@ -210,7 +210,7 @@ function delapp(){
     let appid = document.getElementById("caseid").value;
 
     data = {appid: appid};
-    
+
     fetch('/delete_app', {
         method: 'POST', // or 'PUT'
         headers: {

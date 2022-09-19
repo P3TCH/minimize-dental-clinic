@@ -39,14 +39,14 @@
 													<path d="M12.331 9.5a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zM7 6.5c0 .828-.448 0-1 0s-1 .828-1 0S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 0-1 0s-1 .828-1 0S9.448 5 10 5s1 .672 1 1.5z"/>
 												  </svg>
 											</div>
-											<form class="user" action= "/login" method="POST">
+											<form class="user">
 												<div class="mb-3"><input class="form-control form-control-user" type="ID"
 														id="email" placeholder="อีเมล" name="email"></div>
 												<div class="mb-3"><input class="form-control form-control-user" type="password"
 														id="password" placeholder="รหัสผ่าน" name="password"></div>
 											</form>
 											<div class="d-grid col-6 mx-auto">
-												<button class="btn btn-success d-block btn-user" style="color: white;" onclick="login()" type="submit" id="go">ลงชื่อเข้าใช้</button>
+												<button class="btn btn-success d-block btn-user" onclick="login()" style="color: white;" type="submit" value="Submit" id="go">ลงชื่อเข้าใช้</button>
 											</div>
 											<br>
 											<div class="text-center"><a>ไม่มีบัญชีใช่หรือไม่ ?</a>
@@ -56,6 +56,7 @@
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>

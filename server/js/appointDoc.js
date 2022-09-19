@@ -59,7 +59,7 @@ function loaddoc(){
                     el.value = `${data_get.userid[i].userid}`;
                     document.getElementById('app_doctor').appendChild(el);
                 }
-                
+
 
             } else {
                 localStorage.removeItem('token');
@@ -141,6 +141,7 @@ async function show_appointment(){
                 var index_doc;
 
                 document.getElementById('pointed').innerHTML = '';
+                document.getElementById('waitting_case').innerHTML = '';
                 for (let i = 0; i < data_get.userid.length ; i++) {
                     if(data_get.userid[i].status === 'open'){
                         for(let j = 0 ; j < doc_get.userid.length ; j++) {
@@ -150,8 +151,19 @@ async function show_appointment(){
                         }
                         console.log(index_doc);
                         let p = document.createElement("p");
-                        p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} อาการ : ${data_get.userid[i].treatmentinfo} สถานะ : ${data_get.userid[i].status}`;
+                        p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} อาการ : ${data_get.userid[i].treatmentinfo} สถานะ : รอตรวจ`;
                         document.getElementById('pointed').appendChild(p);
+                    }
+                    if(data_get.userid[i].status === 'waitting'){
+                        for(let j = 0 ; j < doc_get.userid.length ; j++) {
+                            if(data_get.userid[i].docid == doc_get.userid[j].userid) {
+                                index_doc = j;
+                            }
+                        }
+                        console.log(index_doc);
+                        let p = document.createElement("p");
+                        p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} อาการ : ${data_get.userid[i].treatmentinfo} สถานะ : รอยืนยัน`;
+                        document.getElementById('waitting_case').appendChild(p);
                     }
                     if(data_get.userid[i].status === 'close'){
                         for(let j = 0 ; j < doc_get.userid.length ; j++) {
@@ -177,6 +189,7 @@ async function show_appointment(){
         console.error('Error:', error);
     });
 }
+
 
 ///////////// CHANGE TO CLOSE /////////////
 
@@ -230,6 +243,44 @@ function change(){
     }
 }
 
+
+function loadwaitid(){
+    const token = localStorage.getItem('token');
+
+    fetch('/all_app', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+    })
+    .then(response => response.json())
+    .then(data_get => {
+        if (data_get.status == 'ok') {
+            console.log(data_get)
+            let lengths = data_get.userid.length;
+
+            document.getElementById('caseid_wait').innerHTML = '';
+            for (let i = 0; i < lengths; i++) {
+                if(data_get.userid[i].status === 'waitting'){
+                    let el = document.createElement("option");
+                    el.textContent = `${data_get.userid[i].appid}`;
+                    el.value = `${data_get.userid[i].appid}`;
+                    document.getElementById('caseid_wait').appendChild(el);
+                }
+            }
+        } else {
+            console.log('Error');
+        }
+        console.log('Success:', data_get);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+    loaddoc()
+}
+
 function loadcaseid(){
     const token = localStorage.getItem('token');
 
@@ -272,7 +323,7 @@ function delapp(){
     let appid = document.getElementById("caseid").value;
 
     data = {appid: appid};
-    
+
     fetch('/delete_app', {
         method: 'POST', // or 'PUT'
         headers: {
@@ -294,4 +345,64 @@ function delapp(){
         .catch((error) => {
             console.error('Error:', error);
         });
+}
+
+function del_wait(){
+    const token = localStorage.getItem('token');
+    let appid = document.getElementById("caseid_wait").value;
+
+    data = {appid: appid};
+
+    fetch('/delete_app', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(data_get => {
+            if (data_get.status == 'ok') {
+                alert('ลบข้อมูลเสร็จสิ้น');
+                location.reload();
+            } else {
+                alert("ERROR!");
+            }
+            console.log('Success:', data_get);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+function confirm_app(){
+    const token = localStorage.getItem('token');
+    let appid = document.getElementById("caseid_wait").value;
+
+    data = {appid: appid};
+
+    fetch('/confirm_app', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data_get => {
+        if (data_get.status == 'ok') {
+            console.log(data_get);
+            alert("อัพเดดข้อมูลเรียบร้อย");
+            window.location.href = './appointmentDoc';
+        } else {
+            alert('ERROR!');
+            window.location.href = './appointmentDoc';
+        }
+        console.log('Success:', data_get);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
