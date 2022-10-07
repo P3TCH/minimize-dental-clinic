@@ -78,8 +78,9 @@ git clone https://github.com/P3TCH/minimize-dental-clinic.git
 cd minimize-dental-clinic
 sudo mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+flush privileges;
 CREATE DATABASE dentist;
-#exit mysql (press ctrl+c)
+EXIT;
 mysql -u root -p dentist < dentist.sql
 ```
 #### RUN SERVER
