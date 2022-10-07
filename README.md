@@ -2,6 +2,62 @@
 
 This project for TU!
 
+# Setup Guid
+#### enviroment setup
+1. clone this project
+
+```shell
+git clone https://github.com/P3TCH/minimize-dental-clinic.git
+cd minimize-dental-clinic/server
+```
+3. install node (Recommended version 16 and above.), you can install with nvm (recommended)
+https://github.com/nvm-sh/nvm
+```shell
+git clone https://github.com/nvm-sh/nvm.git
+sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+sudo nvm install 16
+```
+4. install mariadb
+- centOS, Amazon Linux
+```shell
+sudo yum update
+sudo yum install mariadb-server
+sudo mysql_secure_installation
+sudo systemctl enable mariadb.service
+```
+- RedHat
+```shell
+sudo dnf update
+sudo dnf install mariadb-server
+sudo mysql_secure_installation
+sudo systemctl enable mariadb.service
+```
+- Ubuntu, Debian
+```shell
+sudo apt update
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+sudo systemctl enable mariadb.service
+```
+
+5. import table to mariadb (dentist.sql)
+```shell
+git clone https://github.com/P3TCH/minimize-dental-clinic.git
+cd minimize-dental-clinic
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+CREATE DATABASE dentist;
+[Exit mysql]
+mysql -u root -p dentist < dentist.sql
+```
+
+6. Run node server
+```shell
+cd minimize-dental-clinic/server
+npm install
+node app.js
+```
+
 ## Current Function
 - [x] login with email and password
 - [x] register new user
