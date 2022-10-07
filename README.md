@@ -2,15 +2,15 @@
 This project for TU! CS360
 
 ##### build with
-frontend => html, css, bootstrap 5, Javascript__
-backend => nodejs : express, mysql2, bcrypt, cors, path, process, jsonwebtoken, body-parser__
-database => mariaDB (You can use mysql instead but recommended mariaDB)__
-backend automated test => jest, supertest__
-frontend automated test => protractor, mocha__
+frontend => html, css, bootstrap 5, Javascript  
+backend => nodejs : express, mysql2, bcrypt, cors, path, process, jsonwebtoken, body-parser  
+database => mariaDB (You can use mysql instead but recommended mariaDB)  
+backend automated test => jest, supertest  
+frontend automated test => protractor, mocha  
 
 # setup guide
 #### enviroment setup
-== if you not have git install git first ==__
+== if you not have git install git first ==
 - centOS, Amazon Linux
 ```shell
 sudo yum update && sudo yum install git
@@ -141,6 +141,6 @@ http://localhost:8080
 
 
 ## log
-5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)__
-7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)__
-7 Oct 2022 22:30 => Update Setup Guide__
+5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
+7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
+7 Oct 2022 22:30 => Update Setup Guide  
