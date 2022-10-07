@@ -2,15 +2,20 @@
 This project for TU! CS360
 
 ##### build with
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code> 
 frontend => html, css, bootstrap 5, Javascript  
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code> 
 backend => nodejs : express, mysql2, bcrypt, cors, path, process, jsonwebtoken, body-parser  
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png"></code> 
 database => mariaDB (You can use mysql instead but recommended mariaDB)  
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code> 
 backend automated test => jest, supertest  
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code> 
 frontend automated test => protractor, mocha  
 
 # setup guide
 #### enviroment setup
-== if you not have git install git first ==
+1. if you not have git install git first
 - centOS, Amazon Linux
 ```shell
 sudo yum update && sudo yum install git
@@ -28,7 +33,7 @@ sudo apt update && sudo apt install git
 brew install git
 ```
 
-1. clone this project
+2. clone this project
 
 ```shell
 git clone https://github.com/P3TCH/minimize-dental-clinic.git
