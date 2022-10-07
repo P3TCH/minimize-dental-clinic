@@ -20,7 +20,15 @@ frontend automated test => protractor, mocha
 ## 🗒 Setup guide
 #### ENVIROMENT SETUP
 #### 1. if you not have git install git first
-- centOS, Amazon Linux
+- MacOS (Using homebrew)
+```shell
+brew install git
+```
+- Windows (Using scoop)
+```shell
+scoop install git
+```
+- CentOS, Amazon Linux
 ```shell
 sudo yum update && sudo yum install git
 ```
@@ -32,10 +40,6 @@ sudo dnf update && sudo dnf install git
 ```shell
 sudo apt update && sudo apt install git
 ```
-- MacOS (Using homebrew)
-```shell
-brew install git
-```
 #### 2. install node (Recommended version 16 and above.), you can install with nvm (recommended)
 https://github.com/nvm-sh/nvm
 ```shell
@@ -44,7 +48,18 @@ sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh |
 sudo nvm install 16
 ```
 #### 3. install mariadb
-- centOS, Amazon Linux
+- MacOS (Using homebrew)
+```bash
+brew install mariadb
+mysql.server start
+brew services start mariadb
+```
+- Windows (Using scoop)
+```bash
+scoop install mariadb
+mariadb --console
+```
+- CentOS, Amazon Linux
 ```bash
 sudo yum update
 sudo yum install mariadb-server
@@ -65,12 +80,6 @@ sudo apt install mariadb-server
 sudo mysql_secure_installation
 sudo systemctl enable mariadb.service
 ```
-- MacOS (Using homebrew)
-```bash
-brew install mariadb
-mysql.server start
-brew services start mariadb
-```
 
 #### 5. import table to mariadb (dentist.sql)
 ```bash
@@ -78,8 +87,9 @@ git clone https://github.com/P3TCH/minimize-dental-clinic.git
 cd minimize-dental-clinic
 sudo mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+flush privileges;
 CREATE DATABASE dentist;
-#exit mysql (press ctrl+c)
+EXIT;
 mysql -u root -p dentist < dentist.sql
 ```
 #### RUN SERVER
@@ -88,6 +98,10 @@ mysql -u root -p dentist < dentist.sql
 cd ~/minimize-dental-clinic/server
 npm install
 node app.js
+```
+##### for export .sql file
+```bash
+mysqldump -u username -p database_name > data-dump.sql
 ```
 
 #### 7. Website run at port 8080 (You can change port in file app.js)
@@ -131,7 +145,9 @@ http://localhost:8080
 - [x] see all adminstrator list
 - [ ] alert waring when deleting appointmemnt
 #### adminstrator manage page
+- [x] confirm appointment
 - [ ] alert waring when deleting appointmemnt
+- [ ] list treatment history (BUG!!)
 
 ## 📝 SPRINT 1
 | To Do | Doing | Done | Automate Tested |
@@ -146,16 +162,22 @@ http://localhost:8080
 ## 📝 SPRINT 2
 | To Do | Doing | Done | Automate Tested |
 |-------|-------|------|-----------------|
-|แยกรายการที่ตรวจแล้วเป็นหน้าใหม่|-|-| ✗ |
-|แยกหน้าการตรวจเป็นหน้าใหม่|-|-| ✗ |
+|-|-|แยกรายการประวัติการรักษาของคนไข้ทั้งหมดเป็นหน้าใหม่ (ของหมอ)| ✗ |
+|-|-|แยกรายการประวัติการรักษาของคนไข้ทั้งหมดเป็นหน้าใหม่ (ของหมอ)| ✗ |
+|-|แยกหน้าการตรวจเป็นหน้าใหม่|-| ✗ |
 |แก้ไข แสดงผลนัดหมายคนไข้ ให้เป็นตาราง|-|-| ✗ |
 |เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของหมอ|-|-| ✗ |
 |เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของพนักงาน|-|-| ✗ |
 |เพิ่มคอมเฟิร์มนัดหมายของคนไข้ สำหรับหน้าบุคลากร|-|-| ✗ |
 |การให้คะแนนความพึงพอใจหมอฟัน สำหรับคนไข้|-|-| ✗ |
+|แก้บัคหน้าเพิ่ม account หมอ ให้แสดงถูกต้อง|-|-| ✗ |
+|แก้บัคหน้าเพิ่ม account ผู้ดูแล ให้แสดงถูกต้อง|-|-| ✗ |
 
-
-## 🧾 WORK LOG
+## 🧾 WORKING LOG
 5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
 7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
 7 Oct 2022 22:30 => Update Setup Guide  
+8 Oct 2022 01:23 => Create treatment history list page for doctor and administrator  
+                 => add new POST api name "getalluser" for get username (backend)  
+8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
+8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
