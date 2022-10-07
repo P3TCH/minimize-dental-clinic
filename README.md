@@ -2,6 +2,15 @@
 
 This project for TU!
 
+# Current Function
+- [x] login with email and password
+- [x] register new user
+- [x] register new doctor and administrator
+- [x] encryption password
+- [x] user manage page
+- [x] doctor manage page
+- [x] administrator manage page
+
 ## Sprint 1
 | To Do | Doing | Done | Automate Tested |
 |-------|-------|------|-----------------|
@@ -10,6 +19,7 @@ This project for TU!
 |-|-|แสดงนัดหมายที่รอยืนยันจากแพทย์ ในหน้าตารางนัดหมายของหมอ| ✗ |
 |-|-|แก้ไข Backend เวลาเพิ่มนัดหมาย ให้แสดงสถานะเป็น รอยืนยัน| ✗ |
 |-|-|กด Enter แล้ว Login ได้| ✗ |
+
 
 ## Sprint 2
 | To Do | Doing | Done | Automate Tested |
