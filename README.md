@@ -20,7 +20,15 @@ frontend automated test => protractor, mocha
 ## 🗒 Setup guide
 #### ENVIROMENT SETUP
 #### 1. if you not have git install git first
-- centOS, Amazon Linux
+- MacOS (Using homebrew)
+```shell
+brew install git
+```
+- Windows (Using scoop)
+```shell
+scoop install git
+```
+- CentOS, Amazon Linux
 ```shell
 sudo yum update && sudo yum install git
 ```
@@ -32,10 +40,6 @@ sudo dnf update && sudo dnf install git
 ```shell
 sudo apt update && sudo apt install git
 ```
-- MacOS (Using homebrew)
-```shell
-brew install git
-```
 #### 2. install node (Recommended version 16 and above.), you can install with nvm (recommended)
 https://github.com/nvm-sh/nvm
 ```shell
@@ -44,7 +48,18 @@ sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh |
 sudo nvm install 16
 ```
 #### 3. install mariadb
-- centOS, Amazon Linux
+- MacOS (Using homebrew)
+```bash
+brew install mariadb
+mysql.server start
+brew services start mariadb
+```
+- Windows (Using scoop)
+```bash
+scoop install mariadb
+mariadb --console
+```
+- CentOS, Amazon Linux
 ```bash
 sudo yum update
 sudo yum install mariadb-server
@@ -64,12 +79,6 @@ sudo apt update
 sudo apt install mariadb-server
 sudo mysql_secure_installation
 sudo systemctl enable mariadb.service
-```
-- MacOS (Using homebrew)
-```bash
-brew install mariadb
-mysql.server start
-brew services start mariadb
 ```
 
 #### 5. import table to mariadb (dentist.sql)
