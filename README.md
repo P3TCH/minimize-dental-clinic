@@ -170,12 +170,14 @@ http://localhost:8080
 |เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของพนักงาน|-|-| ✗ |
 |เพิ่มคอมเฟิร์มนัดหมายของคนไข้ สำหรับหน้าบุคลากร|-|-| ✗ |
 |การให้คะแนนความพึงพอใจหมอฟัน สำหรับคนไข้|-|-| ✗ |
+|แก้บัคหน้าเพิ่ม account หมอ ให้แสดงถูกต้อง|-|-| ✗ |
+|แก้บัคหน้าเพิ่ม account ผู้ดูแล ให้แสดงถูกต้อง|-|-| ✗ |
 
 ## 🧾 WORKING LOG
 5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
 7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
 7 Oct 2022 22:30 => Update Setup Guide  
-8 Oct 2022 01:23 => Create treatment history list page for doctor and administrator
-                 => add new POST api name "getalluser" for get username (backend)
-8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history
-8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)
+8 Oct 2022 01:23 => Create treatment history list page for doctor and administrator  
+                 => add new POST api name "getalluser" for get username (backend)  
+8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
+8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
