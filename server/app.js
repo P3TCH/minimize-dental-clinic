@@ -11,7 +11,7 @@ const saltRounds = 10;
 const { emitWarning } = require('process');
 const { application } = require('express');
 
-var port = 4567;
+var port = 8080;
 const secret = 'i here too';
 
 
@@ -24,6 +24,7 @@ app.use('/css', express.static(__dirname + '/css'));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
+    password: '123456',
     database: 'dentist'
 });
 
