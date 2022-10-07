@@ -12,10 +12,10 @@ function loadlistdoc(){
         .then(data_get => {
             if (data_get.status == 'ok') {
                 console.log( data_get.userid)
-                
+
                 let lengths = data_get.userid.length;
 
-                
+
                 for (let i = 0; i < lengths; i++) {
                     let tr = document.createElement("tr");
                     tr.innerHTML = `<td><input type="text" style="margin: 10px 0px 10px 0px;" class="form-control inputTable" disabled id="numSub" value="${ data_get.userid[i].userid}"></td>
@@ -52,12 +52,12 @@ function loadlistadmin(){
         .then(data_get => {
             if (data_get.status == 'ok') {
                 console.log( data_get.userid)
-                
+
                 let lengths = data_get.userid.length;
                 let sex;
 
-                
-                
+
+
                 for (let i = 0; i < lengths; i++) {
                     if(data_get.userid[i].gender == 'M'){
                         sex = 'เพศชาย'

@@ -38,6 +38,10 @@ app.get('/login', function (req, res, next) {
     res.sendFile(__dirname + '/login.html');
 })
 
+app.get('/historylist', function(req, res, next) {
+    res.sendFile(__dirname + '/historylist.html');
+})
+
 app.get('/signup', function(req, res){
     res.sendFile(__dirname + '/signup.html');
 })
@@ -311,6 +315,32 @@ app.post('/getinfo_db', jsonParser , function(req, res, next) {
                     return 0;
                 }else{
                     res.json({status: 'ok' , userid: users[0].userid, email: users[0].email, tel: users[0].tel, birthday: users[0].birthday, firstname: users[0].firstname, lastname: users[0].lastname, gender: users[0].gender, citizenid: users[0].citizenid, type: users[0].type});
+                }
+            }
+        );
+    } catch(err){
+        res.json({status:'error', message: err.message});
+    }
+});
+
+app.post('/getalluser', jsonParser , function(req, res, next) {
+    try {
+        var checktoken = req.headers.authorization.split(' ')[1];
+        var decoded = jwt.verify(checktoken, secret);
+        let userid_check = decoded.userid;
+        connection.execute(
+            'SELECT * FROM users',
+            [userid_check],
+
+            function(err, users, fields) {
+                if(err) {
+                    res.json({status: 'error' , message: err});
+                    return 0;
+                }else if(users.length == 0){
+                    res.json({status: 'error' , message: 'no user found'});
+                    return 0;
+                }else{
+                    res.json({status: 'ok' , users: users});
                 }
             }
         );

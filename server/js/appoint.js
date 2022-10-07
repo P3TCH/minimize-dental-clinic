@@ -233,3 +233,100 @@ function delapp(){
             console.error('Error:', error);
         });
 }
+
+var stringaa;
+
+function getname_by_id(tr, input_id){
+    const token = localStorage.getItem('token');
+
+    fetch('/getalluser', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+    })
+    .then(response => response.json())
+    .then(data_get => {
+        if (data_get.status == 'ok') {
+            for (let i = 0; i < data_get.users.length; i++) {
+                if (data_get.users[i].userid == input_id) {
+                    console.log("MATH " + data_get.users[i].firstname + " " + data_get.users[i].lastname);
+                    tr.innerHTML += `<td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="docname" value="${data_get.users[i].firstname} ${data_get.users[i].lastname}"></td>`;
+                }
+            }
+        } else {
+        }
+        console.log('Success:', data_get);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+function show_appointment_new(){
+    const token = localStorage.getItem('token');
+
+    fetch('/all_app', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+    })
+    .then(response => response.json())
+    .then((data_get) => {
+        if (data_get.status == 'ok') {
+            fetch('/getalluser', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+            })
+            .then(response => response.json())
+            .then(user_get => {
+                if (user_get.status == 'ok') {
+                    //fetch done
+                    for (let i = 0; i < data_get.userid.length; i++) {
+                        let tr = document.createElement("tr");
+                        if(data_get.userid[i].status === 'close'){
+                            console.log();
+                            let docname = "";
+                            let username = "";
+                            let tel = "";
+                            //get name
+                            for (let j = 0; j < user_get.users.length; j++) {
+                                if (user_get.users[j].userid == data_get.userid[i].docid) {
+                                    docname = user_get.users[j].firstname + " " + user_get.users[j].lastname;
+                                }
+                                if (user_get.users[j].userid == data_get.userid[i].userid) {
+                                    username = user_get.users[j].firstname + " " + user_get.users[j].lastname;
+                                    tel = user_get.users[j].tel;
+                                }
+                            }
+
+                            tr.innerHTML = `<td><input type="text" style="margin: 10px 0px 10px 0px;" class="form-control inputTable" disabled id="caseid" value="${data_get.userid[i].appid}"></td>
+                            <td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="docname" value="${docname}"></td>
+                            <td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="username" value="${username}"></td>
+                            <td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="date" value="${data_get.userid[i].date}"></td>
+                            <td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="time" value="${data_get.userid[i].time}"></td>
+                            <td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="phone" value="${tel}"></td>
+                            <td><input type="text" style="margin: 10px 0px 10px 0px;"class="form-control inputTable" disabled id="treatmentinfo" value="${ data_get.userid[i].treatmentinfo}"></td>`;
+                            document.getElementById('tables').appendChild(tr);
+                        }
+                    }
+                } else {
+                }
+                console.log('Success:', data_get);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        console.log('Success:');
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}

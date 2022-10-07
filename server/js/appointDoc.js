@@ -165,17 +165,17 @@ async function show_appointment(){
                         p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} อาการ : ${data_get.userid[i].treatmentinfo} สถานะ : รอยืนยัน`;
                         document.getElementById('waitting_case').appendChild(p);
                     }
-                    if(data_get.userid[i].status === 'close'){
-                        for(let j = 0 ; j < doc_get.userid.length ; j++) {
-                            if(data_get.userid[i].docid == doc_get.userid[j].userid) {
-                                index_doc = j;
-                            }
-                        }
-                        console.log(index_doc);
-                        let p = document.createElement("p");
-                        p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} รายละเอียดการตรวจ : ${data_get.userid[i].treatmentinfo}`;
-                        document.getElementById('closed').appendChild(p);
-                    }
+                    // if(data_get.userid[i].status === 'close'){
+                    //     for(let j = 0 ; j < doc_get.userid.length ; j++) {
+                    //         if(data_get.userid[i].docid == doc_get.userid[j].userid) {
+                    //             index_doc = j;
+                    //         }
+                    //     }
+                    //     console.log(index_doc);
+                    //     let p = document.createElement("p");
+                    //     p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} รายละเอียดการตรวจ : ${data_get.userid[i].treatmentinfo}`;
+                    //     document.getElementById('closed').appendChild(p);
+                    // }
                 }
             }
             });
