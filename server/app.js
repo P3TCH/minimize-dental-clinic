@@ -57,12 +57,8 @@ app.get('/edituser', function(req, res){
     res.sendFile(__dirname + '/edituser.html');
 })
 
-app.get('/editemp', function(req, res){
-    res.sendFile(__dirname + '/editemp.html');
-})
-
-app.get('/editedoctor', function(req, res){
-    res.sendFile(__dirname + '/editedoctor.html');
+app.get('/editdoc', function(req, res){
+    res.sendFile(__dirname + '/editdoc.html');
 })
 
 app.get('/appointment', function(req, res){
@@ -79,10 +75,6 @@ app.get('/profileP', function(req, res){
 
 app.get('/treatmenthistory', function(req, res){
     res.sendFile(__dirname + '/treatmenthistory.html');
-})
-
-app.get('/editdoc', function(req, res){
-    res.sendFile(__dirname + '/editdoc.html');
 })
 
 app.get('/listDoctor', function(req, res){
