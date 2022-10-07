@@ -1,9 +1,33 @@
-# minimize-dental-clinic
+# minimize dental clinic
+This project for TU! CS360
 
-This project for TU!
+##### build with
+frontend => html, css, bootstrap 5, Javascript__
+backend => nodejs : express, mysql2, bcrypt, cors, path, process, jsonwebtoken, body-parser__
+database => mariaDB (You can use mysql instead but recommended mariaDB)__
+backend automated test => jest, supertest__
+frontend automated test => protractor, mocha__
 
-# Setup Guid
+# setup guide
 #### enviroment setup
+== if you not have git install git first ==__
+- centOS, Amazon Linux
+```shell
+sudo yum update && sudo yum install git
+```
+- RedHat
+```shell
+sudo dnf update && sudo dnf install git
+```
+- Ubuntu, Debian
+```shell
+sudo apt update && sudo apt install git
+```
+- MacOS (Using homebrew)
+```shell
+brew install git
+```
+
 1. clone this project
 
 ```shell
@@ -23,28 +47,34 @@ sudo nvm install 16
 sudo yum update
 sudo yum install mariadb-server
 sudo mysql_secure_installation
-sudo systemctl enable mariadb.service
+sudo systemctl enable mariadb.service //To auto-start MariaDB Server
 ```
 - RedHat
 ```shell
 sudo dnf update
 sudo dnf install mariadb-server
 sudo mysql_secure_installation
-sudo systemctl enable mariadb.service
+sudo systemctl enable mariadb.service //To auto-start MariaDB Server
 ```
 - Ubuntu, Debian
 ```shell
 sudo apt update
 sudo apt install mariadb-server
 sudo mysql_secure_installation
-sudo systemctl enable mariadb.service
+sudo systemctl enable mariadb.service //To auto-start MariaDB Server
+```
+- MacOS (Using homebrew)
+```shell
+brew install mariadb
+mysql.server start
+brew services start mariadb //To auto-start MariaDB Server
 ```
 
 5. import table to mariadb (dentist.sql)
 ```shell
 git clone https://github.com/P3TCH/minimize-dental-clinic.git
 cd minimize-dental-clinic
-mysql -u root -p
+sudo mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
 CREATE DATABASE dentist;
 [Exit mysql]
@@ -56,6 +86,11 @@ mysql -u root -p dentist < dentist.sql
 cd minimize-dental-clinic/server
 npm install
 node app.js
+```
+
+7. Website run at port 8080 (You can change port in file app.js)
+```shell
+http://localhost:8080
 ```
 
 ## Current Function
@@ -106,5 +141,6 @@ node app.js
 
 
 ## log
-5 Oct 2022 => Create automated test for backend api (with jest & supertest)\n
-7 Oct 2022 => Fix bug hyperlink homep.html (user pages)
+5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)__
+7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)__
+7 Oct 2022 22:30 => Update Setup Guide__
