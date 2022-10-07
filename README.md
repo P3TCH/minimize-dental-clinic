@@ -2,23 +2,23 @@
 
 This project for TU!
 
-# Current Function
+## Current Function
 - [x] login with email and password
 - [x] register new user
 - [x] register new doctor and administrator
 - [x] encryption password
-### user manage page
+#### user manage page
 - [x] add new  appointment
 - [x] see all doctor name list 
 - [x] treatment history
-### doctor manage page
+#### doctor manage page
 - [x] confirm appointment
 - [x] Examine the patient, add details of the examination.
 - [x] delete appointment
 - [x] list treatment history
 - [x] see all doctor name list
 - [x] see all adminstrator list
-### administrator manage page
+#### administrator manage page
 - [x] add new appointment for user
 - [x] delete appointment
 - [x] see all doctor name list
@@ -50,5 +50,5 @@ This project for TU!
 
 
 ## log
-5 Oct 2022 => Create automated test for backend api (with jest & supertest)
+5 Oct 2022 => Create automated test for backend api (with jest & supertest)\n
 7 Oct 2022 => Fix bug hyperlink homep.html (user pages)
