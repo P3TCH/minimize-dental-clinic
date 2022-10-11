@@ -1,7 +1,24 @@
 # minimize dental clinic
 This project for TU! CS360
+## List of this project
+### Info
+- [Info](#info)  
+### Setup guide
+- [Enviroment setup](#enviroment-setup)
+- [How to run server](#run-server)  
+### Function
+- [Current function](#current-function)
+- [Future function](#future-function)  
+### Tester
+- [Backend test (Jest)](#backend-test)
+- [Frontend test (Protractor)](#frontend-test)  
+### Working
+- [Sprint 1](#sprint-1)
+- [Sprint 2](#sprint-2)
+- [Working LOG](#working-log)  
 
 ## 📕 Build with
+#### INFO
 <code><img height="20" height="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" ></code> 
 frontend => html, css, bootstrap 5, Javascript  
 
@@ -149,7 +166,29 @@ http://localhost:8080
 - [ ] alert waring when deleting appointmemnt
 - [ ] list treatment history (BUG!!)
 
-## 📝 SPRINT 1
+## HOW TO RUN TEST
+### Backend test
+- (Jest)
+```bash
+git clone https://github.com/P3TCH/minimize-dental-clinic.git
+cd minimize-dental-clinic/backendtest
+npm install
+npm test
+```
+
+### Frontend test
+- (Protractor)
+```bash
+git clone https://github.com/P3TCH/minimize-dental-clinic.git
+cd minimize-dental-clinic/frontendtest
+npm install -g protractor
+npm install -g webdriver-manager
+webdriver-manager update
+webdriver-manager start
+npm test
+```
+
+## SPRINT 1
 | To Do | Doing | Done | Automate Tested |
 |-------|-------|------|-----------------|
 |-|-|เพิมเมนูของแพทย์ ให้สามารถดูข้อมูลหมอ และ บุคลากรได้| ✓ |
@@ -159,7 +198,7 @@ http://localhost:8080
 |-|-|กด Enter แล้ว Login ได้| ✗ |
 
 
-## 📝 SPRINT 2
+## SPRINT 2
 | To Do | Doing | Done | Automate Tested |
 |-------|-------|------|-----------------|
 |-|-|แยกรายการประวัติการรักษาของคนไข้ทั้งหมดเป็นหน้าใหม่ (ของหมอ)| ✗ |
@@ -173,7 +212,7 @@ http://localhost:8080
 |แก้บัคหน้าเพิ่ม account หมอ ให้แสดงถูกต้อง|-|-| ✗ |
 |แก้บัคหน้าเพิ่ม account ผู้ดูแล ให้แสดงถูกต้อง|-|-| ✗ |
 
-## 🧾 WORKING LOG
+## WORKING LOG
 5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
 7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
 7 Oct 2022 22:30 => Update Setup Guide  
@@ -181,3 +220,4 @@ http://localhost:8080
                  => add new POST api name "getalluser" for get username (backend)  
 8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
 8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
+10 Oct 2022 18:19 => Fix frontend test (protractor)
