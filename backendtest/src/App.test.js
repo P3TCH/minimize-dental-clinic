@@ -1,5 +1,5 @@
 const request = require('supertest');
-const baseURL = "http://3.83.202.236:8080"
+const baseURL = "http://petchredhat.sytes.net:8080"
 
 describe('GET /', () => {
   it('respond with 200', async () => {
