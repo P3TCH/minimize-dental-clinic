@@ -8,9 +8,23 @@ describe('GET /', () => {
   });
 });
 
+describe('GET /check', () => {
+  it('respond with 200', async () => {
+    const respond = await request(baseURL).get('/check');
+    expect(respond.statusCode).toBe(200);
+  });
+});
+
 describe('GET /login', () => {
   it('respond with 200', async () => {
     const respond = await request(baseURL).get('/login');
+    expect(respond.statusCode).toBe(200);
+  });
+});
+
+describe('GET /logout', () => {
+  it('respond with 200', async () => {
+    const respond = await request(baseURL).get('/logout');
     expect(respond.statusCode).toBe(200);
   });
 });
@@ -42,6 +56,14 @@ describe('GET /homep', () => {
     expect(respond.statusCode).toBe(200);
   });
 });
+
+describe('GET /historylist', () => {
+  it('respond with 200', async () => {
+    const respond = await request(baseURL).get('/historylist');
+    expect(respond.statusCode).toBe(200);
+  });
+});
+
 
 describe('GET /edituser', () => {
   it('respond with 200', async () => {
@@ -147,7 +169,7 @@ describe('POST /login_api wrong password', () => {
   });
 });
 
-describe('POST /getinfo_db', () => {
+describe('POST /info_db', () => {
   it('respond message "get info success"', async () => {
     const respond = await request(baseURL).post('/getinfo_db').send({
       userid_check: "1"
@@ -156,3 +178,4 @@ describe('POST /getinfo_db', () => {
     console.log(data);
   });
 });
+
