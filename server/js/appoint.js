@@ -186,7 +186,7 @@ function loadcaseid(){
 
             document.getElementById('caseid').innerHTML = '';
             for (let i = 0; i < lengths; i++) {
-                if(data_get.userid[i].status === 'open'){
+                if(data_get.userid[i].status === 'open' || data_get.userid[i].status === 'waitting'){
                     let el = document.createElement("option");
                     el.textContent = `${data_get.userid[i].appid}`;
                     el.value = `${data_get.userid[i].appid}`;
