@@ -134,7 +134,8 @@ describe('Test doc list', function(){
 
 
 
-    // it('Test patient add',function(){
+    // it('TEST PATIENT DELETE WARNING BOX SHOW',function(){
+    //     console.log("======= TEST PATIENT DELETE WARNING BOX SHOW =======")
     //     let EC = browser.ExpectedConditions;
     //     browser.waitForAngularEnabled(false);
 
@@ -220,7 +221,8 @@ describe('Test doc list', function(){
     // });
 
 
-    it('Test doc add',function(){
+    it('TEST DOC DELETE WARNING BOX SHOW',function(){
+       console.log("======= TEST DOC DELETE WARNING BOX SHOW =======")
         let EC = browser.ExpectedConditions;
         browser.waitForAngularEnabled(false);
 
@@ -266,19 +268,40 @@ describe('Test doc list', function(){
             console.log('doc key arkarn patient');
         })
 
+        browser.sleep(1200)
+        element(by.id('add')).click().then(function(){
+            console.log('doc add button clicked');
+        })
+        
+        browser.sleep(1000)
+        browser.switchTo().alert().accept();
+
+        browser.sleep(1000)
+        element(by.id('del1')).click().then(function(){
+            console.log('doc delete button clicked');
+        })
+
+        browser.sleep(1000)
+        element(by.id('cancel')).click().then(function(){
+            console.log('doc cancel in delete button clicked');
+        })
+
+        browser.sleep(1000)
+        element(by.id('del1')).click().then(function(){
+            console.log('doc delete button clicked');
+        })
+
+        browser.sleep(1000)
+        element(by.id('del2')).click().then(function(){
+            console.log('doc delete2 button clicked');
+        })
+
+        browser.sleep(1000)
+        browser.switchTo().alert().accept();
+
         browser.sleep(1000)
         element(by.css('a.navbar-brand.d-flex.align-items-center')).click().then(function(){
             console.log('main page clicked');
-        })
-
-        browser.sleep(1000)
-        element(by.css('button.btn.btn-light.d-block.btn-user.btn.ig.rounded-pill')).click().then(function(){
-            console.log('doc add clicked');
-        })
-
-        browser.sleep(1000)
-        element(by.id('doc_confirm')).click().then(function(){
-            console.log('doc appointment confirm button clicked');
         })
 
         browser.sleep(2000)
