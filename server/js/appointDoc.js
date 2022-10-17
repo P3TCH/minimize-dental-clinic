@@ -110,6 +110,63 @@ function addapp(){
     }
 }
 
+async function show_appointment(){
+    const token = localStorage.getItem('token');
+
+    fetch('/all_app', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+    })
+    .then(response => response.json())
+    .then((data_get) => {
+        if (data_get.status == 'ok') {
+            console.log('asd')
+            console.log(data_get)
+
+            fetch('/getdoc_db', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+            })
+            .then(response => response.json())
+            .then(doc_get => {
+            if (data_get.status == 'ok') {
+                console.log('doc_get')
+                console.log(doc_get);
+                var index_doc;
+
+                document.getElementById('pointed').innerHTML = '';
+                for (let i = 0; i < data_get.userid.length ; i++) {
+                    if(data_get.userid[i].status === 'open'){
+                        for(let j = 0 ; j < doc_get.userid.length ; j++) {
+                            if(data_get.userid[i].docid == doc_get.userid[j].userid) {
+                                index_doc = j;
+                            }
+                        }
+                        console.log(index_doc);
+                        let p = document.createElement("p");
+                        p.textContent = `หมายเลขเคส : ${data_get.userid[i].appid} ชื่อหมอ : ${doc_get.userid[index_doc].firstname} ${doc_get.userid[index_doc].lastname} วันที่ : ${data_get.userid[i].date} เวลา : ${data_get.userid[i].time} อาการ : ${data_get.userid[i].treatmentinfo} สถานะ : รอตรวจ`;
+                        document.getElementById('pointed').appendChild(p);
+                    }
+                }
+            }
+            });
+        }
+        else {
+
+        }
+        console.log('Success:', data_get);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 async function show_appointment_open(){
     const token = localStorage.getItem('token');
 

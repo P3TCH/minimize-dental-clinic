@@ -63,7 +63,7 @@
                         <tr> <!-- แถว -->
                           <th>ID</th><!-- หัว -->
                           <th>วันที่</th>
-                          <th>เวลา</th> 
+                          <th>เวลา</th>
                         </tr>
                     </thead>
                     <td><input type="text" class="form-control inputTable" disabled id="app_id"></td>
@@ -89,7 +89,7 @@
 				<br>
 				<div>
 					<button onclick="addapp()" class="btn btn-light d-block btn-user btn-lg rounded-pill" style="color: rgb(99, 99, 99); background-color: rgb(233, 233, 233);">เพิ่ม</button>&nbsp;&nbsp;&nbsp;
-				</div> 
+				</div>
 
 				&nbsp;<h1 style="color: black; text-align: left;">ลบนัดหมาย</h1>
                 <br>
@@ -99,7 +99,7 @@
                       <thead class="table-secondary">
                         <tr> <!-- แถว -->
                           <th style="width: 90%;">หมายเลขเคส</th><!-- หัว -->
-                          <th></th> 
+                          <th></th>
                         </tr>
                     </thead>
                     <td>
@@ -107,13 +107,33 @@
 						</select>
 					</td>
 					<td>
-						<button onclick="delapp()" class="btn btn-light d-block btn-user btn-lg rounded-pill" style="color: rgb(99, 99, 99); background-color: rgb(233, 233, 233); margin-left: 30px;">ลบ</button>&nbsp;&nbsp;&nbsp;
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary" id="del1" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red;">
+							ลบ
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Delete!!!</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									คุณแน่ใจหรือไม่ที่จะลบนัดหมายนี้
+								</div>
+								<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel">ยกเลิก</button>
+								<button type="button" class="btn btn-primary" onclick="delapp()" id="del2" style="background-color: red;">ยืนยัน</button>
+								</div>
+							</div>
+							</div>
+						</div>
 					</td>
                     </table>
-					
+
                     <br><br><br><br><br>
-				
-                
 			</div>
 		</div>
 	</div>

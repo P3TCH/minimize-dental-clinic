@@ -136,7 +136,7 @@ async function show_appointment(){
 
                     document.getElementById('pointed').innerHTML = '';
                     for (let i = 0; i < data_get.userid.length ; i++) {
-                        if(data_get.userid[i].status === 'open'){
+                        if(data_get.userid[i].status === 'open' || data_get.userid[i].status === 'waitting'){
                             for(let j = 0 ; j < doc_get.userid.length ; j++) {
                                 if(data_get.userid[i].docid == doc_get.userid[j].userid) {
                                     index_doc = j;
