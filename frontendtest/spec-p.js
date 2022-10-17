@@ -22,15 +22,28 @@ describe('Test doc list', function(){
             console.log('login button clicked');
         })
 
-
-
         browser.sleep(1000)
-        element(by.css('a.dropdown-toggle.nva-link')).click().then(function(){
-
+        element(by.id('doclist')).click().then(function(){
+            console.log('user doc button clicked');
         })
 
         browser.sleep(1000)
-        element(by.css('i.fas.fa-sign-out-alt.fa-fw.me-2.text-gray-400')).click().then(function(){
+        element(by.css('span.text-white-600')).click().then(function(){
+            console.log('main clicked');
+        })
+
+        browser.sleep(1000)
+        element(by.id('emlist')).click().then(function(){
+            console.log('user employee button clicked');
+        })
+
+        browser.sleep(1000)
+        element(by.css('span.text-white-600')).click().then(function(){
+            console.log('main clicked');
+        })
+
+        browser.sleep(1000)
+        browser.get('http://petchredhat.sytes.net:8080/logout').then(function(){
             console.log('logout');
         })
 
