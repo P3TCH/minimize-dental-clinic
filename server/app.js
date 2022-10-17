@@ -34,6 +34,14 @@ app.get('/', function (req, res, next) {
     res.sendFile(__dirname + '/redirect.html');
 })
 
+app.get('/check', function (req, res, next){
+    res.sendFile(__dirname + '/check.html');
+})
+
+app.get('/logout', function (req, res, next){
+    res.sendFile(__dirname + '/logout.html');
+})
+
 app.get('/login', function (req, res, next) {
     res.sendFile(__dirname + '/login.html');
 })
