@@ -222,3 +222,39 @@ npm test
 8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
 8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
 10 Oct 2022 18:19 => Fix frontend test (protractor)
+
+## setup
+```bash
+#!/bin/bash
+
+#install git
+sudo dnf update -y && sudo dnf install git -y
+sudo dnf install wget -y
+
+#install nodejs
+sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+sudo nvm install 16
+
+#install mariadb
+sudo dnf update -y
+sudo dnf install mariadb-server -y
+sudo systemctl enable mariadb.service
+sudo systemctl start mariadb.service
+sudo systemctl status mariadb.service | grep Active
+sudo mysql_secure_installation
+
+#install server
+git clone https://github.com/P3TCH/minimize-dental-clinic.git
+cd minimize-dental-clinic
+sudo mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+flush privileges;
+CREATE DATABASE dentist;
+EXIT;
+mysql -u root -p dentist < dentist.sql
+
+cd ~/minimize-dental-clinic/server
+sudo rm -rf node-modules
+npm install
+node app.js
+```
