@@ -80,22 +80,25 @@ mariadb --console
 ```bash
 sudo yum update
 sudo yum install mariadb-server
-sudo mysql_secure_installation
+sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
+sudo mysql_secure_installation
 ```
 - RedHat
 ```bash
 sudo dnf update
 sudo dnf install mariadb-server
-sudo mysql_secure_installation
+sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
+sudo mysql_secure_installation
 ```
 - Ubuntu, Debian
 ```bash
 sudo apt update
 sudo apt install mariadb-server
-sudo mysql_secure_installation
+sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
+sudo mysql_secure_installation
 ```
 
 #### 5. import table to mariadb (dentist.sql)
