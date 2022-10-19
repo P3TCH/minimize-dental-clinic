@@ -247,6 +247,6 @@ npm test
 8 Oct 2022 01:25 => add new POST api name "getalluser" for get username (backend)  
 8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
 8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
-10 Oct 2022 18:19 => Fix frontend test (protractor)
+10 Oct 2022 18:19 => Fix frontend test (protractor)  
 17 Oct 2022 XX:XX => All sprint 2 done and all test of sprint 2 done !!  
 19 Oct 2022 23:17 => Add shell script auto install
