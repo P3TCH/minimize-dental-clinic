@@ -1,21 +1,37 @@
 # minimize dental clinic
 This project for TU! CS360
 # Quick install | Auto setup
-### supported linux
+### Supported Linux
 - <code><img height="20" src="https://avatars.githubusercontent.com/u/33972111?s=200&v=4"></code> Red Hat Enterprise Linux 8
 - <code><img height="20" src="https://seeklogo.com/images/C/CentOS-logo-61929B91AB-seeklogo.com.png"></code> CentOS 7-9
 - <code><img height="20" src="https://cdn.iconscout.com/icon/free/png-256/aws-1869025-1583149.png"></code> Amazon Linux 2
 - <code><img height="20" src="https://www.xilinx.com/content/xilinx/en/products/design-tools/embedded-software/ubuntu/_jcr_content/root/parsysFullWidth/xilinxflexibleslab/xilinxflexibleslab-parsys/xilinxcolumns_149128/childParsys-2/xilinximage.img.png/1629757312962.png"></code> Ubuntu 22.04 LTS
-- <code><img height="20" src="https://www.shareicon.net/data/128x128/2015/09/16/101872_debian_512x512.png"></code> Debian (need sudo)
+- <code><img height="20" src="https://www.shareicon.net/data/128x128/2015/09/16/101872_debian_512x512.png"></code> Debian (request sudo if you install clean debian)
 
-Coppy this command in to terminal
+#### MacOS & Windows can install with Manual install (Guide [here](#enviroment-setup)) <code><img height="20" src="https://cdn-icons-png.flaticon.com/512/2/2235.png"></code> <code><img height="20" src="https://winaero.com/blog/wp-content/uploads/2021/06/Windows-11-Win-X-Menu-icon.png"></code>
+
+### EC2 Setup
+1. Launch new instance
+2. Choose your linux (Check support for this project [here](#supported-linux))
+3. Go to Network settings Click "Add security group rule" 
+4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true"> 
+5. Launch instance  
+6. Go to your terminal and copy this command and run!!  
+
 ```bash
 curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
 ```
+
+<code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
+<code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
+If an error occurs Make sure your linux has curl installed. If not, install it "curl"
+<code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
+<code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
+
 ## List of this project
 ### Info
 - [Info](#info)  
-### Msetup guide
+### Manual setup guide
 - [Enviroment setup](#enviroment-setup)
 - [How to run server](#run-server)  
 ### Function
@@ -161,25 +177,24 @@ http://localhost:8080
 - [x] see all adminstrator list
 - [x] add new doctor account
 - [x] add new adminstrator account
-- [ ] list treatment history (BUG!!)
+- [x] list treatment history (BUG!) <= FIXED
 
 ## Future Function
 - [x] login page with enter key
-- [ ] add page show list treatment history
-- [ ] add page for examine the patient
-- [ ] redesign appointment list to table
+- [x] add page show list treatment history
+- [x] add page for examine the patient
 #### user manage page
-- [ ] alert waring when deleting appointmemnt
-- [ ] review doctor
+- [x] alert waring when deleting appointmemnt
+- [x] review doctor
 #### doctor manage page
 - [x] confirm appointment
 - [x] see all doctor name list
 - [x] see all adminstrator list
-- [ ] alert waring when deleting appointmemnt
+- [x] alert waring when deleting appointmemnt
 #### adminstrator manage page
 - [x] confirm appointment
-- [ ] alert waring when deleting appointmemnt
-- [ ] list treatment history (BUG!!)
+- [x] alert waring when deleting appointmemnt
+- [x] list treatment history (BUG!!) <= FIXED
 
 ## HOW TO RUN TEST
 ### Backend test
@@ -233,5 +248,5 @@ npm test
 8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
 8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
 10 Oct 2022 18:19 => Fix frontend test (protractor)
-17 Oct 2022 XX:XX => All sprint 2 done and all test of sprint 2 done !!
+17 Oct 2022 XX:XX => All sprint 2 done and all test of sprint 2 done !!  
 19 Oct 2022 23:17 => Add shell script auto install
