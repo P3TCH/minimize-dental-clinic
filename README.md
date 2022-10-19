@@ -1,9 +1,21 @@
 # minimize dental clinic
 This project for TU! CS360
+# Quick install | Auto setup
+### supported linux
+- <code><img height="20" src="https://avatars.githubusercontent.com/u/33972111?s=200&v=4"></code> Red Hat Enterprise Linux 8
+- <code><img height="20" src="https://seeklogo.com/images/C/CentOS-logo-61929B91AB-seeklogo.com.png"></code> CentOS 7-9
+- <code><img height="20" src="https://cdn.iconscout.com/icon/free/png-256/aws-1869025-1583149.png"></code> Amazon Linux 2
+- <code><img height="20" src="https://www.xilinx.com/content/xilinx/en/products/design-tools/embedded-software/ubuntu/_jcr_content/root/parsysFullWidth/xilinxflexibleslab/xilinxflexibleslab-parsys/xilinxcolumns_149128/childParsys-2/xilinximage.img.png/1629757312962.png"></code> Ubuntu 22.04 LTS
+- <code><img height="20" src="https://www.shareicon.net/data/128x128/2015/09/16/101872_debian_512x512.png"></code> Debian (need sudo)
+
+Coppy this command in to terminal
+```bash
+curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
+```
 ## List of this project
 ### Info
 - [Info](#info)  
-### Setup guide
+### Msetup guide
 - [Enviroment setup](#enviroment-setup)
 - [How to run server](#run-server)  
 ### Function
@@ -211,54 +223,15 @@ npm test
 |-|-|เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของพนักงาน| ✓ |
 |-|-|เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของคนไข้| ✓ |
 |-|-|เพิ่มคอมเฟิร์มนัดหมายของคนไข้ สำหรับหน้าบุคลากร| ✓ |
-|การให้คะแนนความพึงพอใจหมอฟัน สำหรับคนไข้|-|-| ✗ |
 
 ## WORKING LOG
 5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
 7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
 7 Oct 2022 22:30 => Update Setup Guide  
 8 Oct 2022 01:23 => Create treatment history list page for doctor and administrator  
-                 => add new POST api name "getalluser" for get username (backend)  
+8 Oct 2022 01:25 => add new POST api name "getalluser" for get username (backend)  
 8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
 8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
 10 Oct 2022 18:19 => Fix frontend test (protractor)
-
-## setup
-```bash
-#!/bin/bash
-
-#for RHEL 8
-#install git
-printf '\e[1;32m%-6s\e[m' "=== INSTALLING GIT ==="
-sudo dnf update -y && sudo dnf install git -y
-sudo dnf install wget -y
-
-#install nodejs
-printf '\e[1;32m%-6s\e[m' "=== INSTALLING NODEJS ==="
-sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-sudo nvm install 16
-
-#install mariadb
-printf '\e[1;32m%-6s\e[m' "=== INSTALLING MARIADB ==="
-sudo dnf update -y
-sudo dnf install mariadb-server -y
-sudo systemctl enable mariadb.service
-sudo systemctl start mariadb.service
-sudo systemctl status mariadb.service | grep Active
-sudo mysql_secure_installation
-
-#install server
-printf '\e[1;32m%-6s\e[m' "=== SETTING UP DATABASE ==="
-git clone https://github.com/P3TCH/minimize-dental-clinic.git
-cd minimize-dental-clinic
-mysql -u root -e "SET PASSWORD FOR root@'localhost' = PASSWORD('123456');"
-echo "CREATE DATABASE `dentist`" | mysql -u username -p
-mysql -h "server-name" -u "root" "-p123456" "dentist" < "dentist.sql"
-
-#run server
-printf '\e[1;32m%-6s\e[m' "=== STARTING SERVER ==="
-cd ~/minimize-dental-clinic/server
-sudo rm -rf node-modules
-npm install
-node app.js
-```
+17 Oct 2022 XX:XX => All sprint 2 done and all test of sprint 2 done !!
+19 Oct 2022 23:17 => Add shell script auto install
