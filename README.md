@@ -227,15 +227,19 @@ npm test
 ```bash
 #!/bin/bash
 
+#for RHEL 8
 #install git
+printf '\e[1;32m%-6s\e[m' "=== INSTALLING GIT ==="
 sudo dnf update -y && sudo dnf install git -y
 sudo dnf install wget -y
 
 #install nodejs
+printf '\e[1;32m%-6s\e[m' "=== INSTALLING NODEJS ==="
 sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 sudo nvm install 16
 
 #install mariadb
+printf '\e[1;32m%-6s\e[m' "=== INSTALLING MARIADB ==="
 sudo dnf update -y
 sudo dnf install mariadb-server -y
 sudo systemctl enable mariadb.service
@@ -244,15 +248,15 @@ sudo systemctl status mariadb.service | grep Active
 sudo mysql_secure_installation
 
 #install server
+printf '\e[1;32m%-6s\e[m' "=== SETTING UP DATABASE ==="
 git clone https://github.com/P3TCH/minimize-dental-clinic.git
 cd minimize-dental-clinic
-sudo mysql -u root -p
-ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
-flush privileges;
-CREATE DATABASE dentist;
-EXIT;
-mysql -u root -p dentist < dentist.sql
+mysql -u root -e "SET PASSWORD FOR root@'localhost' = PASSWORD('123456');"
+echo "CREATE DATABASE `dentist`" | mysql -u username -p
+mysql -h "server-name" -u "root" "-p123456" "dentist" < "dentist.sql"
 
+#run server
+printf '\e[1;32m%-6s\e[m' "=== STARTING SERVER ==="
 cd ~/minimize-dental-clinic/server
 sudo rm -rf node-modules
 npm install
