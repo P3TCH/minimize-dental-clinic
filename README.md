@@ -29,21 +29,22 @@ If an error occurs Make sure your linux has curl installed. If not, install it "
 <code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
 
 ## List of this project
-### Info
+#### Info
 - [Info](#info)  
-### Manual setup guide
+#### Manual setup guide
 - [Enviroment setup](#enviroment-setup)
 - [How to run server](#run-server)  
-### Function
+#### Function
 - [Current function](#current-function)
 - [Future function](#future-function)  
-### Tester
+#### Testing
 - [Backend test (Jest)](#backend-test)
 - [Frontend test (Protractor)](#frontend-test)  
-### Working
+#### Working
 - [Sprint 1](#sprint-1)
 - [Sprint 2](#sprint-2)
 - [Working LOG](#working-log)  
+- [Role](#role)
 
 ## 📕 Build with
 #### INFO
@@ -250,3 +251,7 @@ npm test
 10 Oct 2022 18:19 => Fix frontend test (protractor)  
 17 Oct 2022 XX:XX => All sprint 2 done and all test of sprint 2 done !!  
 19 Oct 2022 23:17 => Add shell script auto install
+
+## ROLE
+สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing  
+นายอัยการ เขมะสถิตย์ (QA) End-to-end Testing, Ui Testing, Api Testing  
