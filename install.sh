@@ -87,4 +87,10 @@ fi
 
 sudo npm install -g npm@8.19.2
 npm install
-screen -S mini node ~/minimize-dental-clinic/server/app.js
+screen -dmS mini node ~/minimize-dental-clinic/server/app.js
+if screen -ls | grep mini | wc -l | grep 1; then
+	printf "\e[1;32m\n\n\n\n     SERVER STARTED!!!     \n\n\n\n\n \e[0m"
+else
+	printf "\e[1;31m\n\n\n\n     SERVER FAILED TO START!!!     \n\n\n\n\n \e[0m"
+fi
+
