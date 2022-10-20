@@ -3,7 +3,7 @@ This project for TU! CS360
 # Quick install | Auto setup
 ### Supported Linux
 - <code><img height="20" src="https://avatars.githubusercontent.com/u/33972111?s=200&v=4"></code> Red Hat Enterprise Linux 8
-- <code><img height="20" src="https://seeklogo.com/images/C/CentOS-logo-61929B91AB-seeklogo.com.png"></code> CentOS 7-9
+- <code><img height="20" src="https://seeklogo.com/images/C/CentOS-logo-61929B91AB-seeklogo.com.png"></code> CentOS 8, 9
 - <code><img height="20" src="https://cdn.iconscout.com/icon/free/png-256/aws-1869025-1583149.png"></code> Amazon Linux 2
 - <code><img height="20" src="https://www.xilinx.com/content/xilinx/en/products/design-tools/embedded-software/ubuntu/_jcr_content/root/parsysFullWidth/xilinxflexibleslab/xilinxflexibleslab-parsys/xilinxcolumns_149128/childParsys-2/xilinximage.img.png/1629757312962.png"></code> Ubuntu 22.04 LTS
 - <code><img height="20" src="https://www.shareicon.net/data/128x128/2015/09/16/101872_debian_512x512.png"></code> Debian (request sudo if you install clean debian)
@@ -14,18 +14,23 @@ This project for TU! CS360
 1. Launch new instance
 2. Choose your linux (Check support for this project [here](#supported-linux))
 3. Go to Network settings Click "Add security group rule" 
-4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true"> 
-5. Launch instance  
-6. You have 2 solution
+4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true">  
+5. You have 2 solution
 #### 📕 Solution 1 Add user data on create ec2  
-Copy this to user data
+- Go to Advanced details  
+<img height="200" src="https://cdn.discordapp.com/attachments/1008942139268419584/1032761818017431562/unknown.png"><a></a>  
+- Copy this command and paste to user data
 ```bash
+#!/bin/bash
 curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/ec2_userdata.sh -o ec2_userdata.sh && chmod +x ec2_userdata.sh && bash ec2_userdata.sh
 ```
+<img height="400" src="https://cdn.discordapp.com/attachments/1008942139268419584/1032761981268136066/unknown.png"><a></a>  
+- and Launch instance  
 .  
 .  
 #### 📕 Solution 2 Create ec2 defualt
-ssh to server and run this command on terminal
+- Launch instance first
+- ssh to server and run this command on terminal
 ```bash
 curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
 ```
