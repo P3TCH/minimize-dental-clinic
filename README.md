@@ -117,8 +117,7 @@ sudo yum install screen -y
 ```
 - Ubuntu, Debian
 ```shell
-curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
-sudo apt -y install nodejs
+sudo apt install screen -y
 ```
 #### 3. install node (Recommended version 16 and above.)
 - MacOS, Windows
