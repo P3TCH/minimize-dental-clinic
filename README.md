@@ -3,7 +3,7 @@ This project for TU! CS360
 # Quick install | Auto setup
 ### Supported Linux
 - <code><img height="20" src="https://avatars.githubusercontent.com/u/33972111?s=200&v=4"></code> Red Hat Enterprise Linux 8
-- <code><img height="20" src="https://seeklogo.com/images/C/CentOS-logo-61929B91AB-seeklogo.com.png"></code> CentOS 7-9
+- <code><img height="20" src="https://seeklogo.com/images/C/CentOS-logo-61929B91AB-seeklogo.com.png"></code> CentOS 8, 9
 - <code><img height="20" src="https://cdn.iconscout.com/icon/free/png-256/aws-1869025-1583149.png"></code> Amazon Linux 2
 - <code><img height="20" src="https://www.xilinx.com/content/xilinx/en/products/design-tools/embedded-software/ubuntu/_jcr_content/root/parsysFullWidth/xilinxflexibleslab/xilinxflexibleslab-parsys/xilinxcolumns_149128/childParsys-2/xilinximage.img.png/1629757312962.png"></code> Ubuntu 22.04 LTS
 - <code><img height="20" src="https://www.shareicon.net/data/128x128/2015/09/16/101872_debian_512x512.png"></code> Debian (request sudo if you install clean debian)
@@ -14,10 +14,23 @@ This project for TU! CS360
 1. Launch new instance
 2. Choose your linux (Check support for this project [here](#supported-linux))
 3. Go to Network settings Click "Add security group rule" 
-4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true"> 
-5. Launch instance  
-6. Go to your terminal and copy this command and run!!  
-
+4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true">  
+5. You have 2 solution
+#### 📕 Solution 1 Add user data on create ec2  
+- Go to Advanced details  
+<img height="200" src="https://cdn.discordapp.com/attachments/1008942139268419584/1032761818017431562/unknown.png"><a></a>  
+- Copy this command and paste to user data
+```bash
+#!/bin/bash
+curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/ec2_userdata.sh -o ec2_userdata.sh && chmod +x ec2_userdata.sh && bash ec2_userdata.sh
+```
+<img height="400" src="https://cdn.discordapp.com/attachments/1008942139268419584/1032761981268136066/unknown.png"><a></a>  
+- and Launch instance  
+.  
+.  
+#### 📕 Solution 2 Create ec2 defualt
+- Launch instance first
+- ssh to server and run this command on terminal
 ```bash
 curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
 ```
@@ -74,26 +87,62 @@ brew install git
 ```shell
 scoop install git
 ```
-- CentOS, Amazon Linux
-```shell
-sudo yum update && sudo yum install git
-```
-- RedHat
+- REHL8
 ```shell
 sudo dnf update && sudo dnf install git
+```
+- CentOS 8 or 9, Amazon Linux 2
+```shell
+sudo yum update && sudo yum install git
 ```
 - Ubuntu, Debian
 ```shell
 sudo apt update && sudo apt install git
 ```
-#### 2. install node (Recommended version 16 and above.), you can install with nvm (recommended)
-https://github.com/nvm-sh/nvm
+#### 2. install screen
+- MacOS (Using homebrew)
 ```shell
-git clone https://github.com/nvm-sh/nvm.git
-sudo wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-sudo nvm install 16
+brew install screen
 ```
-#### 3. install mariadb
+- Windows Not found
+- REHL8
+```shell
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
+sudo dnf install screen -y
+```
+- CentOS 8 or 9, Amazon Linux 2
+```shell
+sudo yum install epel-release -y
+sudo yum install screen -y
+```
+- Ubuntu, Debian
+```shell
+sudo apt install screen -y
+```
+#### 3. install node (Recommended version 16 and above.)
+- MacOS, Windows
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+nvm install 16
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+- REHL8
+```shell
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
+sudo dnf install -y nodejs
+```
+- CentOS 8 or 9, Amazon Linux 2
+```shell
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
+sudo yum install -y nodejs
+```
+- Ubuntu, Debian
+```shell
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+sudo apt -y install nodejs
+```
+#### 4. install mariadb
 - MacOS (Using homebrew)
 ```bash
 brew install mariadb
@@ -105,50 +154,44 @@ brew services start mariadb
 scoop install mariadb
 mariadb --console
 ```
-- CentOS, Amazon Linux
+- REHL8
 ```bash
-sudo yum update
-sudo yum install mariadb-server
-sudo systemctl start mariadb.service
-sudo systemctl enable mariadb.service
-sudo mysql_secure_installation
-```
-- RedHat
-```bash
-sudo dnf update
 sudo dnf install mariadb-server
 sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
-sudo mysql_secure_installation
+```
+- CentOS, Amazon Linux
+```bash
+sudo yum install mariadb-server
+sudo systemctl start mariadb.service
+sudo systemctl enable mariadb.service
 ```
 - Ubuntu, Debian
 ```bash
-sudo apt update
 sudo apt install mariadb-server
 sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
-sudo mysql_secure_installation
 ```
 
 #### 5. import table to mariadb (dentist.sql)
 ```bash
 git clone https://github.com/P3TCH/minimize-dental-clinic.git
 cd minimize-dental-clinic
-sudo mysql -u root -p
-ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
-flush privileges;
-CREATE DATABASE dentist;
-EXIT;
-mysql -u root -p dentist < dentist.sql
+sudo mysql -e "CREATE DATABASE dentist"
+sudo mysql -e "FLUSH PRIVILEGES"
+sudo mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('123456')"
+sudo mysql -u root -p123456 dentist < dentist.sql
 ```
 #### RUN SERVER
 #### 6. Run node server
 ```bash
 cd ~/minimize-dental-clinic/server
+rm -rf node-modules
+sudo npm install -g npm@8.19.2
 npm install
-node app.js
+screen -S mini node ~/minimize-dental-clinic/server/app.js #windows not use screen run "node ~/minimize-dental-clinic/server/app.js"
 ```
-##### for export .sql file
+###### for export .sql file :warning: Don't run this :warning:
 ```bash
 mysqldump -u username -p database_name > data-dump.sql
 ```
