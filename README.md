@@ -16,8 +16,16 @@ This project for TU! CS360
 3. Go to Network settings Click "Add security group rule" 
 4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true"> 
 5. Launch instance  
-6. Go to your terminal and copy this command and run!!  
-
+6. You have 2 solution
+#### 📕 Solution 1 Add user data on create ec2  
+Copy this to user data
+```bash
+curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/ec2_userdata.sh -o ec2_userdata.sh && chmod +x ec2_userdata.sh && bash ec2_userdata.sh
+```
+.  
+.  
+#### 📕 Solution 2 Create ec2 defualt
+ssh to server and run this command on terminal
 ```bash
 curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
 ```
