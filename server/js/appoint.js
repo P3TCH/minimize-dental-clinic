@@ -82,6 +82,9 @@ function addapp(){
     if(userid === '' || date === '' || time === '' || docid === '' || treatment === ''){
         alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     }
+    else if(handleDate() === true || handleTime() == true){
+
+    }
     else{
 
         fetch('/appointment_db', {
@@ -329,4 +332,42 @@ function show_appointment_new(){
     .catch((error) => {
         console.error('Error:', error);
     });
+}
+
+function handleDate(){
+    let date = document.getElementById("app_date").value;
+    let datearr = date.split("-");
+    const today = new Date();
+    if (parseInt(datearr[0]) < parseInt(today.getFullYear())) {
+        alert("กรุณาเลือกวันที่ใหม่");
+        return true;
+    }else if(parseInt(datearr[0]) === parseInt(today.getFullYear())){
+        if (parseInt(datearr[1]) < parseInt(today.getMonth()+1)) {
+            alert("กรุณาเลือกวันที่ใหม่");
+            return true;
+        }else if(parseInt(datearr[1]) === parseInt(today.getMonth()+1)){
+            if (parseInt(datearr[2]) < parseInt(today.getDate())) {
+                alert("กรุณาเลือกวันที่ใหม่");
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function handleTime(){
+    let time = document.getElementById("app_time").value;
+    let timearr = time.split(".");
+    if (timearr.length != 2) {
+        alert("กรุณาใส่เวลาให้ถูกต้อง");
+        return true;
+    }else if(parseInt(timearr[0]) > 23 || parseInt(timearr[0])  < 0){
+        alert("กรุณาใส่เวลาให้ถูกต้อง");
+        return true;
+    }else if(parseInt(timearr[1])  > 59|| parseInt(timearr[1] ) < 0){
+        alert("กรุณาใส่เวลาให้ถูกต้อง");
+        return true;
+    }
+    return false;
 }
