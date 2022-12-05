@@ -28,7 +28,7 @@ jobs:
         
       - name: Start mariadb docker
         run: |
-          docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb
+          docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
           docker ps -a
           
       - name: Setup mariadb
