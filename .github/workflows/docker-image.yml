@@ -20,10 +20,8 @@ jobs:
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
           docker ps -a
           
-      - name: Clone data
+      - name: Check file data
         run: |
-          git clone https://github.com/P3TCH/minimize-dental-clinic.git
-          cd minimize-dental-clinic
           pwd
           ls
           
