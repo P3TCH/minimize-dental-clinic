@@ -15,24 +15,25 @@ jobs:
       - name: install docker
         run: |
           sudo apt update
-          sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+          sudo apt install podman-docker
         
       - name: setup docker network
         run: docker network create --subnet=10.2.0.0/16 server
+        
+      - name: Clone data
+        run: |
+          git clone https://github.com/P3TCH/minimize-dental-clinic.git
+          cd minimize-dental-clinic
+          ls
         
       - name: Start mariadb docker
         run: |
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb
           docker ps -a
           
-      - name: Clone data
-        run: |
-          git clone https://github.com/P3TCH/minimize-dental-clinic.git
-          cd minimize-dental-clinic
-          ls
-          
       - name: Setup mariadb
-        run: docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
+        run: |
+          docker -i mydb exec mysql -e "CREATE DATABASE dentist" -p123456
          
           
           
