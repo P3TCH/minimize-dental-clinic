@@ -26,9 +26,7 @@ jobs:
       - name: start mariadb docker
         run: |
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb
-          docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456 -h 127.0.0.1
-          docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456 -h 127.0.0.1
-          docker exec -i mydb mysql -u root -p123456 dentist < dentist.sql -h 127.0.0.1
+          docker ps -a
           
 
 
