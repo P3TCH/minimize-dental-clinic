@@ -16,19 +16,19 @@ jobs:
       #run docker
       - name: setup docker network
         run: docker network create --subnet=10.2.0.0/16 server
-
-      - name: clone data
-        run: |
-          git clone https://github.com/P3TCH/minimize-dental-clinic.git
-          cd minimize-dental-clinic
-          ls
         
-      - name: start mariadb docker
+      - name: Start mariadb docker
         run: |
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb
           docker ps -a
           
-      - name: setup mariadb
+      - name: Clone data
+        run: |
+          git clone https://github.com/P3TCH/minimize-dental-clinic.git
+          cd minimize-dental-clinic
+          ls
+          
+      - name: Setup mariadb
         run: docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
           
 
