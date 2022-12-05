@@ -14,13 +14,13 @@ jobs:
 
     steps:
       #run docker
-      -name: setup docker network
-      run: docker network create --subnet=10.2.0.0/16 server
+      - name: setup docker network
+        run: docker network create --subnet=10.2.0.0/16 server
 
-      -name: start mariadb docker
-      run: docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb && \
-docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456 && \
-docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456 && \
-docker exec -i mydb mysql -u root -p123456 dentist < dentist.sql && \
+      - name: start mariadb docker
+        run: docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb && \
+              docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456 && \
+              docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456 && \
+              docker exec -i mydb mysql -u root -p123456 dentist < dentist.sql && \
 
 
