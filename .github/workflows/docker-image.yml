@@ -8,15 +8,10 @@ on:
 
 jobs:
 
-  build:
+  Setup:
     runs-on: ubuntu-latest
 
     steps:
-      - name: install docker
-        run: |
-          sudo apt update
-          sudo apt install podman-docker
-        
       - name: setup docker network
         run: docker network create --subnet=10.2.0.0/16 server
         
