@@ -29,10 +29,8 @@ jobs:
           ls
           
       - name: Setup mariadb
-        run: |
-          apt install mariadb-server
-          systemctl start mariadb.service
-          docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
+        run: sudo docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
+         
           
           
 
