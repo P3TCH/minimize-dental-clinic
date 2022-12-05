@@ -9,7 +9,6 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +28,7 @@ jobs:
           ls
           
       - name: Setup mariadb
-        run: sudo docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
+        run: docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
          
           
           
