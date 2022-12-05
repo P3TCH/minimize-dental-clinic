@@ -22,6 +22,7 @@ jobs:
           
       - name: Check file data
         run: |
+          git clone https://github.com/P3TCH/minimize-dental-clinic.git
           pwd
           ls
           
@@ -30,7 +31,7 @@ jobs:
           sudo service mysql start
           docker exec mydb mysql -e "CREATE DATABASE dentist" -p123456
           docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456
-          docker exec -i mydb mysql -u root -p123456 dentist < dentist.sql
+          docker exec -i mydb mysql -u root -p123456 dentist < /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/minimize-dental-clinic/dentist.sql
           
           
 
