@@ -28,7 +28,7 @@ jobs:
           
       - name: Setup mariadb
         run: |
-          docker -i mydb exec mysql -e "CREATE DATABASE dentist" -p123456
+          docker exec mydb mysql -e "CREATE DATABASE dentist" -p123456
          
           
           
