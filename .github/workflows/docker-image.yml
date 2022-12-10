@@ -24,7 +24,8 @@ jobs:
 
       - name: Import mariadb docker contaienr
         run: |
-          sudo service mysql start
+          sudo systemctl enable mysql
+          sudo systemctl start mysql
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
           docker ps -a
           
