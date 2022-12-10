@@ -39,6 +39,15 @@ jobs:
           cd  /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/server
           npm install
           npm start
+          pwd
+          touch checkserver
+          echo 'if screen -ls | grep mini | wc -l | grep 1; then' >> checkserver
+          echo '  printf "\e[1;32m\n\n\n\n     SERVER STARTED!!!     \n\n\n\n\n \e[0m"' >> checkserver
+          echo 'else' >> checkserver
+          echo '  printf "\e[1;31m\n\n\n\n     SERVER FAILED TO START!!!     \n\n\n\n\n \e[0m"' >> checkserver
+          echo 'fi' >> checkserver
+          bash checkserver
+
 
 #       - name: Configure AWS credentials
 #         if: success()
