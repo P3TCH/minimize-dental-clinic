@@ -24,8 +24,7 @@ jobs:
 
       - name: Start mariadb
         run: |
-          sudo systemctl start mysql
-          sudo service mysql start
+          sudo /etc/init.d/mysql start
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
           docker ps -a
           touch setup
