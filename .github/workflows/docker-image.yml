@@ -53,14 +53,6 @@ jobs:
       - name: Test backend
         run: |
           cd /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/backendtest
-          touch checknode
-          echo 'if [[ $(find ${FOLDER_ROOT} -name "node_modules" -type d -prune | wc -l) -eq 0 ]]; then' >> checknode
-          echo '  echo "No node_modules found!"' >> checknode
-          echo 'else' >> checknode
-          echo '  find ${FOLDER_ROOT} -name "node_modules" -type d -prune -print | xargs du -chs' >> checknode
-          echo '  find ${FOLDER_ROOT} -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;' >> checknode
-          echo 'fi' >> checknode
-          bash checknode
           npm install
           npm test
 
