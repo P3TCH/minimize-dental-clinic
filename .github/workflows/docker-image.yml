@@ -40,8 +40,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ secrets.AWS_REGION }}
-      - name: Check
-        run: cat file://script/user_data_script.txt
       - name: push aws
         if: success()
         run: aws ec2 run-instances --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/minimize-dental-clinic/installredhat.sh
