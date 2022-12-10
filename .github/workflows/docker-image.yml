@@ -13,32 +13,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Check file
+      - name: Setting environment
         run: |
           pwd
           ls -a
+          sudo apt install screen -y
           
-#       - name: Setup docker network
-#         run: docker network create --subnet=10.2.0.0/16 server
+      - name: Setup docker network
+        run: docker network create --subnet=10.2.0.0/16 server
 
-#       - name: Start mariadb docker
-#         run: |
-#           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
-#           docker ps -a
+      - name: Import mariadb docker contaienr
+        run: |
+          docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
+          docker ps -a
           
-#       - name: Check file data
-#         run: |
-#           git clone https://github.com/P3TCH/minimize-dental-clinic.git
-#           pwd
-#           ls
-          
-#       - name: Setup mariadb
-#         run: |
-#           sudo service mysql start
-#           docker exec mydb mysql -e "CREATE DATABASE dentist" -p123456
-#           docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456
-#           docker exec -i mydb mysql -u root -p123456 dentist < /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/minimize-dental-clinic/dentist.sql
+      - name: Setup mariadb
+        run: |
+          sudo service mysql start
+          docker exec mydb mysql -e "CREATE DATABASE dentist" -p123456
+          docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456
+          docker exec -i mydb mysql -u root -p123456 dentist < /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/dentist.sql
 
+      - name: Start server
+        run: |
+          cd  /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/server
+          npm install
+          npm start
 
 #       - name: Configure AWS credentials
 #         if: success()
