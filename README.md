@@ -283,6 +283,14 @@ npm test
 |-|-|เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของคนไข้| ✓ |
 |-|-|เพิ่มคอมเฟิร์มนัดหมายของคนไข้ สำหรับหน้าบุคลากร| ✓ |
 
+## SPRINT 3
+| To Do | Doing | Done | Automate Tested |
+|-------|-------|------|-----------------|
+|-|-|เพิ่มสีพื้นหลังเพื่อให้ง่ายต่อการอ่าน (ของหมอ)| ✓ |
+|-|-|เพิ่มสีพื้นหลังเพื่อให้ง่ายต่อการอ่าน (ผู้ดูแล)| ✓ |
+|-|-|เพิ่ม handle เมื่อใส่วันที่ก่อนหน้าวันนี้ เพราะไม่สามารถจองย้อนหลังได้| ✓ |
+|-|-|เพิ่ม handle เมื่อใส่เวลาไม่ถูกต้อง ใส่เกิน 24 ชั่วโมง หรือไม่ถูกแพทเทิ้ล| ✓ |
+
 ## WORKING LOG
 5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
 7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
@@ -297,6 +305,6 @@ npm test
 19 Oct 2022 23:17 => Add shell script auto install  
 
 ## ROLE
-สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing  
+สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing, Docker, CICD
 นายอัยการ เขมะสถิตย์ (QA) End-to-end Testing, Ui Testing, Api Testing  
-xd
+
