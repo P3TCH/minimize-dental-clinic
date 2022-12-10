@@ -47,7 +47,19 @@ jobs:
           echo '  printf "\e[1;31m\n\n\n\n     SERVER FAILED TO START!!!     \n\n\n\n\n \e[0m"' >> checkserver
           echo 'fi' >> checkserver
           bash checkserver
-
+      
+      - name: Test backend
+        run: |
+          cd /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/backendtest
+          check nodemodules
+          echo 'if [[ $(find ${FOLDER_ROOT} -name "node_modules" -type d -prune | wc -l) -eq 0 ]]; then'
+          echo '  echo "No node_modules found!"'
+          echo 'else'
+          echo '  find ${FOLDER_ROOT} -name "node_modules" -type d -prune -print | xargs du -chs'
+          echo '  find ${FOLDER_ROOT} -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;'
+          echo 'fi'
+          npm install
+          npm test
 
 #       - name: Configure AWS credentials
 #         if: success()
