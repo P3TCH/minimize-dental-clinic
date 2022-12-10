@@ -22,7 +22,7 @@ app.use('/js', express.static(__dirname + '/js'));
 app.use('/css', express.static(__dirname + '/css'));
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '10.2.0.2',
     user: 'root',
     password: '123456',
     database: 'dentist'
