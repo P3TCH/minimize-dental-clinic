@@ -24,9 +24,9 @@ jobs:
 
       - name: Start mariadb
         run: |
+          sudo systemctl start mysql
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
           docker ps -a
-          sudo service mysql start
           echo 'Started service'
           docker exec mydb mysql -e "CREATE DATABASE dentist" -p123456
           docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456
@@ -62,6 +62,8 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: push aws
         if: success()
-        run: aws ec2 run-instances --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$(date +'%Y-%m-%d_%H:%M')}]' --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data file://installredhat.sh
+        env:
+          NAME: $(date +'%Y-%m-%d_%H:%M')
+        run: aws ec2 run-instances --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$NAME}]' --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data file://installredhat.sh
 
 
