@@ -7,6 +7,5 @@ RUN apt update -y \
 && git clone https://github.com/P3TCH/minimize-dental-clinic.git \
 && cd /minimize-dental-clinic/server \
 && npm install -g npm@8.19.2 \
-&& npm install
-
-RUN && screen screen -dmS mini node /minimize-dental-clinic/server/app.js
+&& npm install \
+&& npm start
