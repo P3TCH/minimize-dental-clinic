@@ -67,6 +67,6 @@ jobs:
         if: success()
         env:
           NAME: $(date +'%Y-%m-%d_%H:%M')
-        run: aws ec2 run-instances --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$NAME}]' --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data file://installredhat.sh
+        run: aws ec2 run-instances --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=\"${NAME}\"}]' --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data file://installredhat.sh
 
 
