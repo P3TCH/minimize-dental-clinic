@@ -43,7 +43,7 @@ jobs:
           
       - name: push aws
         if: success()
-        run: aws ec2 run-instances --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data file://script/installdockerredhat.sh
+        run: aws ec2 run-instances --image-id ${{ secrets.AWS_REDHAT_OS }} --instance-type t2.micro  --key-name ${{ secrets.AWS_KEYPAIR_NAME }} --security-group-ids ${{ secrets.AWS_SECURITY_GROUP }} --user-data file://script/installdockerredhat.txt
     
 
 
