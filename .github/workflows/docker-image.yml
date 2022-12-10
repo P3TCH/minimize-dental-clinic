@@ -24,12 +24,12 @@ jobs:
 
       - name: Import mariadb docker contaienr
         run: |
+          sudo service mysql start
           docker run --network server --ip 10.2.0.2 -e MYSQL_ROOT_PASSWORD=123456 --name mydb -d mariadb:latest
           docker ps -a
           
       - name: Setup mariadb
         run: |
-          sudo service mysql start
           docker exec mydb mysql -e "CREATE DATABASE dentist" -p123456
           docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456
           docker exec -i mydb mysql -u root -p123456 dentist < /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/dentist.sql
@@ -51,13 +51,14 @@ jobs:
       - name: Test backend
         run: |
           cd /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/backendtest
-          check nodemodules
-          echo 'if [[ $(find ${FOLDER_ROOT} -name "node_modules" -type d -prune | wc -l) -eq 0 ]]; then'
-          echo '  echo "No node_modules found!"'
-          echo 'else'
-          echo '  find ${FOLDER_ROOT} -name "node_modules" -type d -prune -print | xargs du -chs'
-          echo '  find ${FOLDER_ROOT} -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;'
-          echo 'fi'
+          touch checknode
+          echo 'if [[ $(find ${FOLDER_ROOT} -name "node_modules" -type d -prune | wc -l) -eq 0 ]]; then' >> checknode
+          echo '  echo "No node_modules found!"' >> checknode
+          echo 'else' >> checknode
+          echo '  find ${FOLDER_ROOT} -name "node_modules" -type d -prune -print | xargs du -chs' >> checknode
+          echo '  find ${FOLDER_ROOT} -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;' >> checknode
+          echo 'fi' >> checknode
+          bash checknode
           npm install
           npm test
 
