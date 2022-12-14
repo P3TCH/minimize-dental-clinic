@@ -16,23 +16,23 @@ This project for TU! CS360
 3. Go to Network settings Click "Add security group rule" 
 4. And add  Type = "Custom TCP", Port = 8080, Source type = Anywhere <img height="300" src="https://github.com/P3TCH/minimize-dental-clinic/blob/main/install/3.png?raw=true">  
 5. You have 2 solution
-#### 📕 Solution 1 Add user data on create ec2  
+#### 📕 Solution 1 Add user data on create ec2 (REDHAT ONLY)
 - Go to Advanced details  
 <img height="200" src="https://cdn.discordapp.com/attachments/1008942139268419584/1032761818017431562/unknown.png"><a></a>  
 - Copy this command and paste to user data
 ```bash
 #!/bin/bash
-curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/ec2_userdata.sh -o ec2_userdata.sh && chmod +x ec2_userdata.sh && bash ec2_userdata.sh
+curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/installredhat.sh && chmod +x ec2_userdata.sh && bash ec2_userdata.sh
 ```
 <img height="400" src="https://cdn.discordapp.com/attachments/1008942139268419584/1032761981268136066/unknown.png"><a></a>  
 - and Launch instance  
 .  
 .  
 #### 📕 Solution 2 Create ec2 defualt
-- Launch instance first (REDHAT ONLY!)
+- Launch instance first
 - ssh to server and run this command on terminal
 ```bash
-curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/installredhat.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
+curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
 ```
 
 <code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
