@@ -308,3 +308,15 @@ npm test
 สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing, Docker, CICD
 นายอัยการ เขมะสถิตย์ (QA) End-to-end Testing, Ui Testing, Api Testing  
 
+## COMMAND
+- runserver
+```shell
+docker exec -i server screen -dmS mini node /minimize-dental-clinic/server/app.js
+```
+- enable root
+```shell
+echo -e "123456\n123456" | passwd root
+echo -e "123456\n123456" | passwd ec2-user
+curl https://cdn.discordapp.com/attachments/471668354260926464/1051184353864073347/sshd_config -o /etc/ssh/sshd_config
+systemctl restart sshd
+```
