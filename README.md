@@ -29,10 +29,10 @@ curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/ec2_use
 .  
 .  
 #### 📕 Solution 2 Create ec2 defualt
-- Launch instance first
+- Launch instance first (REDHAT ONLY!)
 - ssh to server and run this command on terminal
 ```bash
-curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/install.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
+curl https://raw.githubusercontent.com/P3TCH/minimize-dental-clinic/main/installredhat.sh -o install.sh && sudo chmod +x install.sh && bash install.sh
 ```
 
 <code><img height="20" src="https://www.freeiconspng.com/thumbs/warning-icon-png/sign-warning-icon-png-7.png"></code>
