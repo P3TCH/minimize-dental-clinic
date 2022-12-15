@@ -251,10 +251,11 @@ describe('Test patient add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    page.on('dialog', async dialog5 => {
-      console.log(dialog5.message());
-      await dialog5.dismiss();
-    });
+    // page.on('dialog', async dialog5 => {
+    //   console.log(dialog5.message());
+    //   await dialog5.dismiss();
+    // });
+
     await page.goto(url + '/logout');
   });
 });
@@ -345,13 +346,10 @@ describe('Test doctor add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    page.on('dialog', async dialog7 => {
-      console.log(dialog7.message());
-      await dialog7.dismiss();
-    });
-
-    await page.waitForSelector('a.navbar-brand.d-flex.align-items-center')
-    await page.click('a.navbar-brand.d-flex.align-items-center');
+    // page.on('dialog', async dialog7 => {
+    //   console.log(dialog7.message());
+    //   await dialog7.dismiss();
+    // });
 
     await page.goto(url + '/logout');
 
@@ -402,13 +400,10 @@ describe('Test admin add appointment', () => {
     await page.waitForSelector('#add');
     await page.click('#add');
 
-    page.on('dialog', async dialog8 => {
-      console.log(dialog8.message());
-      await dialog8.dismiss();
-    });
-
-    await page.waitForSelector('a.navbar-brand.d-flex.align-items-center')
-    await page.click('a.navbar-brand.d-flex.align-items-center');
+    // page.on('dialog', async dialog8 => {
+    //   console.log(dialog8.message());
+    //   await dialog8.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -445,13 +440,10 @@ describe('Test admin add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    page.on('dialog', async dialog9 => {
-      console.log(dialog9.message());
-      await dialog9.dismiss();
-    });
-
-    await page.waitForSelector('a.navbar-brand.d-flex.align-items-center')
-    await page.click('a.navbar-brand.d-flex.align-items-center');
+    // page.on('dialog', async dialog9 => {
+    //   console.log(dialog9.message());
+    //   await dialog9.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
