@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
 //change id to #
 
 jest.setTimeout(30000);
-url = 'http://18.234.99.117:8080';
+url = 'http://44.211.158.253:8080';
 let dialogHandled = false;
 
 describe('Test doc list', () => {
@@ -21,139 +21,139 @@ describe('Test doc list', () => {
     await browser.close();
   });
 
-//   test('Test doc list', async () => {
-//     console.log('test doc list');
-//     await page.goto(url + '/login');
+  test('Test doc list', async () => {
+    console.log('test doc list');
+    await page.goto(url + '/login');
 
-//     await page.type('#email', 'doc@gmail.com');
+    await page.type('#email', 'doc@gmail.com');
 
-//     await page.type('#password', '123456');
+    await page.type('#password', '123456');
 
-//     await page.click('#go');
-//     await page.waitForNavigation();
+    await page.click('#go');
+    await page.waitForNavigation();
 
-//     await page.click('#historylist');
-//     await page.wait
-//     await page.goto(url + '/logout');
+    await page.click('#historylist');
+    await page.wait
+    await page.goto(url + '/logout');
 
-//     expect(page.url()).toBe(url + '/logout');
-//   });
-
-
-//   test('Test admin list', async () => {
-//     console.log('test admin list');
-//     await page.goto(url + '/login');
-
-//     await page.type('#email', 'admin@gmail.com');
-
-//     await page.type('#password', '123456');
-
-//     await page.waitForSelector('#go');
-//     await page.click('#go');
-
-//     await page.waitForSelector('#docapp');
-//     await page.click('#docapp');
-
-//     await page.goto(url + '/logout');
-//   });
-
-//  test('Test admin add patient', async () => {
-//     console.log('Test admin add patient');
-//     await page.goto(url + '/login');
-
-//     await page.type('#email', 'admin@gmail.com');
-
-//     await page.type('#password', '123456');
-
-//     await page.waitForSelector('#go');
-//     await page.click('#go');
-
-//     await page.waitForSelector('#addpoint');
-//     await page.click('#addpoint');
-
-//     await page.waitForTimeout(3000);
-
-//     await page.type('#app_id', '252');
-//     await page.type('#app_time', '03:22');
-//     await page.type('#app_date', '2022-12-22');
-//     await page.type('#app_arkarn', 'ปวดใจ');
-
-//     await page.waitForSelector('#add');
-//     await page.click('#add');
-
-//     page.on('dialog', async dialog => {
-//         console.log(dialog.message());
-//         expect(dialog.message()).toBe('ทำการจองเรียบร้อยแล้ว');
-//         await dialog.dismiss();
-//     });
-
-//     await page.goto(url + '/logout');
-//     });
+    expect(page.url()).toBe(url + '/logout');
+  });
 
 
+  test('Test admin list', async () => {
+    console.log('test admin list');
+    await page.goto(url + '/login');
 
-// test('Test admin confirm patient', async () => {
-//     console.log('Test admin confirm patient');
-//     await page.goto(url + '/login');
+    await page.type('#email', 'admin@gmail.com');
 
-//     await page.type('#email', 'admin@gmail.com');
+    await page.type('#password', '123456');
 
-//     await page.type('#password', '123456');
+    await page.waitForSelector('#go');
+    await page.click('#go');
 
-//     await page.waitForSelector('#go');
-//     await page.click('#go');
+    await page.waitForSelector('#docapp');
+    await page.click('#docapp');
 
-//     await page.waitForSelector('#addpoint');
-//     await page.click('#addpoint');
+    await page.goto(url + '/logout');
+  });
 
-//     await page.waitForTimeout(3000);
+ test('Test admin add patient', async () => {
+    console.log('Test admin add patient');
+    await page.goto(url + '/login');
 
-//     await page.waitForSelector('#em_confirm');
-//     await page.click('#em_confirm');
+    await page.type('#email', 'admin@gmail.com');
 
-//     page.on('dialog', async dialog2 => {
-//       console.log(dialog2.message());
-//       expect(dialog2.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
-//       await dialog2.dismiss();
-//     });
+    await page.type('#password', '123456');
 
-//     await page.goto(url + '/logout');
-//   });
+    await page.waitForSelector('#go');
+    await page.click('#go');
+
+    await page.waitForSelector('#addpoint');
+    await page.click('#addpoint');
+
+    await page.waitForTimeout(3000);
+
+    await page.type('#app_id', '252');
+    await page.type('#app_time', '03:22');
+    await page.type('#app_date', '2022-12-22');
+    await page.type('#app_arkarn', 'ปวดใจ');
+
+    await page.waitForSelector('#add');
+    await page.click('#add');
+
+    page.on('dialog', async dialog => {
+        console.log(dialog.message());
+        expect(dialog.message()).toBe('ทำการจองเรียบร้อยแล้ว');
+        await dialog.dismiss();
+    });
+
+    await page.goto(url + '/logout');
+    });
 
 
-//  test('Test Docter examine the patient', async () => {
-//     console.log('Docter examine the patient');
-//     await page.goto(url + '/login');
 
-//     await page.type('#email', 'doc@gmail.com');
-//     await page.type('#password', '123456');
+test('Test admin confirm patient', async () => {
+    console.log('Test admin confirm patient');
+    await page.goto(url + '/login');
 
-//     await page.waitForSelector('#go');
-//     await page.click('#go');
+    await page.type('#email', 'admin@gmail.com');
 
-//     await page.waitForSelector('#check');
-//     await page.click('#check');
+    await page.type('#password', '123456');
 
-//     await page.waitForTimeout(5000);
+    await page.waitForSelector('#go');
+    await page.click('#go');
 
-//     await page.waitForSelector('#info_z');
-//     await page.type('#info_z', 'ใช้ใจ');
-//     await page.waitForSelector('#price_z');
-//     await page.type('#price_z', '70000');
+    await page.waitForSelector('#addpoint');
+    await page.click('#addpoint');
 
-//     await page.click('#doc_check_confirm');
+    await page.waitForTimeout(3000);
 
-//     page.on('dialog', async dialog3 => {
-//       console.log(dialog3.message());
-//       expect(dialog3.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
-//       await dialog3.dismiss();
-//     });
+    await page.waitForSelector('#em_confirm');
+    await page.click('#em_confirm');
 
-//     await page.goto(url + '/logout');
-//   });
+    page.on('dialog', async dialog2 => {
+      console.log(dialog2.message());
+      expect(dialog2.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
+      await dialog2.dismiss();
+    });
 
-  test('Test patient delete warning box show', async () => {
-    console.log('test patient delete warning box show');
+    await page.goto(url + '/logout');
+  });
+
+
+ test('Test Docter examine the patient', async () => {
+    console.log('Docter examine the patient');
+    await page.goto(url + '/login');
+
+    await page.type('#email', 'doc@gmail.com');
+    await page.type('#password', '123456');
+
+    await page.waitForSelector('#go');
+    await page.click('#go');
+
+    await page.waitForSelector('#check');
+    await page.click('#check');
+
+    await page.waitForTimeout(5000);
+
+    await page.waitForSelector('#info_z');
+    await page.type('#info_z', 'ใช้ใจ');
+    await page.waitForSelector('#price_z');
+    await page.type('#price_z', '70000');
+
+    await page.click('#doc_check_confirm');
+
+    page.on('dialog', async dialog3 => {
+      console.log(dialog3.message());
+      expect(dialog3.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
+      await dialog3.dismiss();
+    });
+
+    await page.goto(url + '/logout');
+  });
+
+  test ('Test patient add appointment', async () => {
+    console.log('Test patient add appointment');
     await page.goto(url + '/login');
 
     await page.type('#email', 'patient@gmail.com');
@@ -171,18 +171,15 @@ describe('Test doc list', () => {
     await page.type('#app_date' , '12-22-2022');
 
     await page.waitForSelector('#app_time');
-    await page.type('#app_time' , '02:22');
+    await page.type('#app_time' , '02.22');
 
     await page.waitForSelector('#app_arkarn');
     await page.type('#app_arkarn' , 'ปวดใจ');
-    
+
     await page.waitForTimeout(3000);
-    
+
     await page.waitForSelector('#add');
     await page.click('#add');
-
-    // await page.waitForNavigation({ waitUntil: 'load' })
-    await page.waitForTimeout(3000);
 
     page.on('dialog', async dialog4 => {
       console.log(dialog4.message());
@@ -190,15 +187,21 @@ describe('Test doc list', () => {
       await dialog4.dismiss();
     });
 
-    await page.waitForTimeout(3000);
-    
-    await page.waitForSelector('#del1');
-    await page.click('#del1');
+    await page.goto(url + '/logout');
+  });
 
-    await page.waitForTimeout(3000);
-    
-    await page.waitForSelector('#cancel');
-    await page.click('#cancel');
+  test('Test patient delete warning box show', async () => {
+    console.log('test patient delete warning box show');
+    await page.goto(url + '/login');
+
+    await page.type('#email', 'patient@gmail.com');
+    await page.type('#password', '123456');
+
+    await page.waitForSelector('#go');
+    await page.click('#go');
+
+    await page.waitForSelector('#docapp');
+    await page.click('#docapp');
 
     await page.waitForTimeout(3000);
 
@@ -358,31 +361,31 @@ describe('Test doc list', () => {
     // test('Test patient time box error show', async () => {
     //   console.log('test patient time box error show');
     //   await page.goto(url + '/login');
-  
+
     //   await page.type('#email', 'patient@gmail.com');
-  
+
     //   await page.type('#password', '123456');
-  
+
     //   await page.waitForSelector('#go');
     //   await page.click('#go');
-  
+
     //   await page.waitForSelector('#docapp');
     //   await page.click('#docapp');
     //   await page.waitForTimeout(3000);
 
     //   await page.waitForSelector('#app_id');
     //   await page.type('#app_id', '252');
-    
+
     //   await page.waitForSelector('#app_time');
     //   await page.type('#app_time', '25.70');
-    
+
     //   await page.waitForSelector('#app_date');
     //   await page.type('#app_date', '12-22-2022');
-    
+
     //   await page.waitForSelector('#app_arkarn');
     //   await page.type('#app_arkarn', 'ปวดใจ');
 
-       
+
     //   page.on('dialog', async dialog10 => {
     //   console.log(dialog10.message());
     //   expect(dialog10.message()).toBe('กรุณาใส่เวลาให้ถูกต้อง');
@@ -391,13 +394,13 @@ describe('Test doc list', () => {
 
     // await page.waitForSelector('#app_id');
     //   await page.type('#app_id', '252');
-    
+
     //   await page.waitForSelector('#app_time');
     //   await page.type('#app_time', '12.12');
-    
+
     //   await page.waitForSelector('#app_date');
     //   await page.type('#app_date', '12-22-2020');
-    
+
     //   await page.waitForSelector('#app_arkarn');
     //   await page.type('#app_arkarn', 'ปวดใจ');
 
@@ -407,10 +410,10 @@ describe('Test doc list', () => {
     //   expect(dialog11.message()).toBe('กรุณาเลือกวันที่ใหม่');
     //   await dialog11.dismiss();
     // });
-  
+
     //   await page.goto(url + '/logout');
     //   });
-  
+
 
 
 });
