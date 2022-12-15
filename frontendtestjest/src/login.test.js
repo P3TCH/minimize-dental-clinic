@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 //change it to test
 //change id to #
 
-jest.setTimeout(30000);
+jest.setTimeout(35000);
 url = 'http://127.0.0.1:8080';
 let dialogHandled = false;
 
@@ -251,10 +251,10 @@ describe('Test patient add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    // page.on('dialog', async dialog5 => {
-    //   console.log(dialog5.message());
-    //   await dialog5.dismiss();
-    // });
+    page.on('dialog', async dialog5 => {
+      console.log(dialog5.message());
+      await dialog5.dismiss();
+    });
 
     await page.goto(url + '/logout');
   });
@@ -346,10 +346,10 @@ describe('Test doctor add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    // page.on('dialog', async dialog7 => {
-    //   console.log(dialog7.message());
-    //   await dialog7.dismiss();
-    // });
+    page.on('dialog', async dialog7 => {
+      console.log(dialog7.message());
+      await dialog7.dismiss();
+    });
 
     await page.goto(url + '/logout');
 
@@ -400,10 +400,10 @@ describe('Test admin add appointment', () => {
     await page.waitForSelector('#add');
     await page.click('#add');
 
-    // page.on('dialog', async dialog8 => {
-    //   console.log(dialog8.message());
-    //   await dialog8.dismiss();
-    // });
+    page.on('dialog', async dialog8 => {
+      console.log(dialog8.message());
+      await dialog8.dismiss();
+    });
 
     await page.goto(url + '/logout');
   });
@@ -440,10 +440,10 @@ describe('Test admin add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    // page.on('dialog', async dialog9 => {
-    //   console.log(dialog9.message());
-    //   await dialog9.dismiss();
-    // });
+    page.on('dialog', async dialog9 => {
+      console.log(dialog9.message());
+      await dialog9.dismiss();
+    });
 
     await page.goto(url + '/logout');
   });
