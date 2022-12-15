@@ -4,11 +4,13 @@ const puppeteer = require('puppeteer');
 //change id to #
 
 jest.setTimeout(30000);
-url = 'http://54.90.240.88:8080';
+url = 'http://54.82.25.150:8080';
+let dialogHandled = false;
 
 describe('Test doc list', () => {
   let page;
   let browser;
+
 
   beforeAll(async () => {
     browser = await puppeteer.launch();
@@ -19,44 +21,41 @@ describe('Test doc list', () => {
     await browser.close();
   });
 
-  // test('Test doc list', async () => {
-  //   console.log('test doc list');
-  //   await page.goto(url + '/login');
+  test('Test doc list', async () => {
+    console.log('test doc list');
+    await page.goto(url + '/login');
 
-  //   await page.type('#email', 'doc@gmail.com');
+    await page.type('#email', 'doc@gmail.com');
 
-  //   await page.type('#password', '123456');
+    await page.type('#password', '123456');
 
-  //   await page.click('#go');
-  //   await page.waitForNavigation();
+    await page.click('#go');
+    await page.waitForNavigation();
 
-  //   await page.click('#historylist');
-  //   await page.wait
-  //   await page.goto(url + '/logout');
+    await page.click('#historylist');
+    await page.wait
+    await page.goto(url + '/logout');
 
-  //   expect(page.url()).toBe(url + '/logout');
-  // });
+    expect(page.url()).toBe(url + '/logout');
+  });
 
 
-  // test('Test admin list', async () => {
-  //   console.log('test admin list');
-  //   await page.goto(url + '/login');
+  test('Test admin list', async () => {
+    console.log('test admin list');
+    await page.goto(url + '/login');
 
-  //   await page.type('#email', 'admin@gmail.com');
+    await page.type('#email', 'admin@gmail.com');
 
-  //   await page.type('#password', '123456');
+    await page.type('#password', '123456');
 
-  //   await page.waitForSelector('#go');
-  //   await page.click('#go');
+    await page.waitForSelector('#go');
+    await page.click('#go');
 
-  //   await page.waitForSelector('#docapp');
-  //   await page.click('#docapp');
+    await page.waitForSelector('#docapp');
+    await page.click('#docapp');
 
-  //   await page.waitForSelector('a.navbar-brand.d-flex.align-items-center');
-  //   await page.click('a.navbar-brand.d-flex.align-items-center');
-
-  //   await page.goto(url + '/logout');
-  // });
+    await page.goto(url + '/logout');
+  });
 
  test('Test admin add patient', async () => {
     console.log('Test admin add patient');
@@ -83,18 +82,18 @@ describe('Test doc list', () => {
     await page.click('#add');
 
     page.on('dialog', async dialog => {
-      console.log(dialog.message());
-      expect(dialog.message()).toBe('ทำการจองเรียบร้อยแล้ว');
-      await dialog.dismiss();
+        console.log(dialog.message());
+        expect(dialog.message()).toBe('ทำการจองเรียบร้อยแล้ว');
+        await dialog.dismiss();
     });
-    
+
     await page.goto(url + '/logout');
     });
 
 
 
 test('Test admin confirm patient', async () => {
-    console.log('test admin confirm patient');
+    console.log('Test admin confirm patient');
     await page.goto(url + '/login');
 
     await page.type('#email', 'admin@gmail.com');
@@ -112,18 +111,18 @@ test('Test admin confirm patient', async () => {
     await page.waitForSelector('#em_confirm');
     await page.click('#em_confirm');
 
-    page.on('dialog', async dialog => {
-      console.log(dialog.message());
-      expect(dialog.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
-      await dialog.dismiss();
+    page.on('dialog', async dialog2 => {
+      console.log(dialog2.message());
+      expect(dialog2.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
+      await dialog2.dismiss();
     });
 
     await page.goto(url + '/logout');
   });
 
 
- test('Test Docker examine the patient', async () => {
-    console.log('Docker examine the patient');
+ test('Test Docter examine the patient', async () => {
+    console.log('Docter examine the patient');
     await page.goto(url + '/login');
 
     await page.type('#email', 'doc@gmail.com');
@@ -142,18 +141,14 @@ test('Test admin confirm patient', async () => {
     await page.waitForSelector('#price_z');
     await page.type('#price_z', '70000');
 
-    console.log('clicked');
     await page.click('#doc_check_confirm');
 
-    console.log('wait for dialog');
-    page.on('dialog', async dialog => {
-      console.log(dialog.message());
-      expect(dialog.message()).toBe('บันทึกข้อมูลเรียบร้อย');
-      await dialog.dismiss();
+    page.on('dialog', async dialog3 => {
+      console.log(dialog3.message());
+      expect(dialog3.message()).toBe('อัพเดดข้อมูลเรียบร้อย');
+      await dialog3.dismiss();
     });
 
-    await page.waitForSelector('a.navbar-brand.d-flex.align-items-center');
-    await page.click('a.navbar-brand.d-flex.align-items-center');
     await page.goto(url + '/logout');
   });
 
@@ -172,7 +167,7 @@ test('Test admin confirm patient', async () => {
   //   await page.click('#docapp');
 
   //   await page.waitForTimeout(5000);
-    
+
   //   await page.waitForSelector('#app_date');
   //   await page.type('#app_date' , '2022-12-22');
 
@@ -283,7 +278,7 @@ test('Test admin confirm patient', async () => {
   //   await page.goto(url + '/logout');
   //   });
 
-  
+
 
   // test('Test patient time box error show', async () => {
   //   console.log('test patient time box error show');
