@@ -4,7 +4,7 @@ const baseURL = "http://127.0.0.1:8080"
 describe('GET /', () => {
   it('respond with 200', async () => {
     const respond = await request(baseURL).get('/');
-    expect(respond.statusCode).toBe(404);
+    expect(respond.statusCode).toBe(200);
   });
 });
 
