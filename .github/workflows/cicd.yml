@@ -54,6 +54,12 @@ jobs:
           cd /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/backendtest
           npm install
           npm test
+          
+      - name: Test frontend
+        run: |
+          cd /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/frontendtestjest
+          npm install
+          npm test
 
       - name: Configure AWS credentials
         if: success()
