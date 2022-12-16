@@ -15,6 +15,11 @@ describe('Test doc list', () => {
   beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
+
+    page.on('dialog', async dialog => {
+      console.log(dialog.message());
+      await dialog.dismiss();
+    });
   });
 
   afterAll(async () => {
@@ -81,10 +86,10 @@ describe('Test doc list', () => {
     await page.waitForSelector('#add');
     await page.click('#add');
 
-    page.on('dialog', async dialog1 => {
-      console.log(dialog1.message());
-      await dialog1.dismiss();
-    });
+    // page.on('dialog', async dialog1 => {
+    //   console.log(dialog1.message());
+    //   await dialog1.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -124,10 +129,10 @@ describe('Test admin confirm', () => {
     await page.waitForSelector('#em_confirm');
     await page.click('#em_confirm');
 
-    page.on('dialog', async dialog2 => {
-      console.log(dialog2.message());
-      await dialog2.dismiss();
-    });
+    // page.on('dialog', async dialog2 => {
+    //   console.log(dialog2.message());
+    //   await dialog2.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -169,10 +174,10 @@ describe('Test Docter examine the patient', () => {
 
     await page.click('#doc_check_confirm');
 
-    page.on('dialog', async dialog3 => {
-      console.log(dialog3.message());
-      await dialog3.dismiss();
-    });
+    // page.on('dialog', async dialog3 => {
+    //   console.log(dialog3.message());
+    //   await dialog3.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -221,10 +226,10 @@ describe('Test patient add appointment', () => {
     await page.waitForSelector('#add');
     await page.click('#add');
 
-    page.on('dialog', async dialog4 => {
-      console.log(dialog4.message());
-      await dialog4.dismiss();
-    });
+    // page.on('dialog', async dialog4 => {
+    //   console.log(dialog4.message());
+    //   await dialog4.dismiss();
+    // });
     await page.goto(url + '/logout');
   });
 
@@ -251,10 +256,10 @@ describe('Test patient add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    page.on('dialog', async dialog5 => {
-      console.log(dialog5.message());
-      await dialog5.dismiss();
-    });
+    // page.on('dialog', async dialog5 => {
+    //   console.log(dialog5.message());
+    //   await dialog5.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -304,10 +309,10 @@ describe('Test doctor add appointment', () => {
     await page.waitForSelector('#add');
     await page.click('#add');
 
-    page.on('dialog', async dialog6 => {
-      console.log(dialog6.message());
-      await dialog6.dismiss();
-    });
+    // page.on('dialog', async dialog6 => {
+    //   console.log(dialog6.message());
+    //   await dialog6.dismiss();
+    // });
     await page.goto(url + '/logout');
   });
 
@@ -346,10 +351,10 @@ describe('Test doctor add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    page.on('dialog', async dialog7 => {
-      console.log(dialog7.message());
-      await dialog7.dismiss();
-    });
+    // page.on('dialog', async dialog7 => {
+    //   console.log(dialog7.message());
+    //   await dialog7.dismiss();
+    // });
 
     await page.goto(url + '/logout');
 
@@ -400,10 +405,10 @@ describe('Test admin add appointment', () => {
     await page.waitForSelector('#add');
     await page.click('#add');
 
-    page.on('dialog', async dialog8 => {
-      console.log(dialog8.message());
-      await dialog8.dismiss();
-    });
+    // page.on('dialog', async dialog8 => {
+    //   console.log(dialog8.message());
+    //   await dialog8.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -440,10 +445,10 @@ describe('Test admin add appointment', () => {
     await page.waitForSelector('#del2');
     await page.click('#del2');
 
-    page.on('dialog', async dialog9 => {
-      console.log(dialog9.message());
-      await dialog9.dismiss();
-    });
+    // page.on('dialog', async dialog9 => {
+    //   console.log(dialog9.message());
+    //   await dialog9.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
@@ -490,10 +495,10 @@ describe('Test patient time box error show', () => {
     await page.type('#app_arkarn', 'ปวดใจ');
 
 
-    page.on('dialog', async dialog10 => {
-      console.log(dialog10.message());
-      await dialog10.dismiss();
-    });
+    // page.on('dialog', async dialog10 => {
+    //   console.log(dialog10.message());
+    //   await dialog10.dismiss();
+    // });
 
     await page.waitForSelector('#app_id');
     await page.type('#app_id', '252');
@@ -508,10 +513,10 @@ describe('Test patient time box error show', () => {
     await page.type('#app_arkarn', 'ปวดใจ');
 
 
-    page.on('dialog', async dialog11 => {
-      console.log(dialog11.message());
-      await dialog11.dismiss();
-    });
+    // page.on('dialog', async dialog11 => {
+    //   console.log(dialog11.message());
+    //   await dialog11.dismiss();
+    // });
 
     await page.goto(url + '/logout');
   });
