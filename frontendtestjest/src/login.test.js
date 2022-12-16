@@ -80,8 +80,12 @@ describe('Test doc list', () => {
 
     await page.waitForSelector('#add');
     page.on('dialog', async dialog1 => {
-      console.log(dialog1.message());
-      await dialog1.dismiss();
+      try {
+        console.log(dialog1.message());
+        await dialog1.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#add');
 
@@ -124,8 +128,12 @@ describe('Test admin confirm', () => {
 
     await page.waitForSelector('#em_confirm');
     page.on('dialog', async dialog2 => {
-      console.log(dialog2.message());
-      await dialog2.dismiss();
+      try {
+        console.log(dialog2.message());
+        await dialog2.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#em_confirm');
 
@@ -170,8 +178,12 @@ describe('Test Docter examine the patient', () => {
     await page.type('#price_z', '70000');
 
     page.on('dialog', async dialog3 => {
-      console.log(dialog3.message());
-      await dialog3.dismiss();
+      try {
+        console.log(dialog3.message());
+        await dialog3.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#doc_check_confirm');
 
@@ -225,8 +237,12 @@ describe('Test patient add appointment', () => {
     await page.click('#add');
 
     page.on('dialog', async dialog4 => {
-      console.log(dialog4.message());
-      await dialog4.dismiss();
+      try {
+        console.log(dialog4.message());
+        await dialog4.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.goto(url + '/logout');
   });
@@ -253,8 +269,12 @@ describe('Test patient add appointment', () => {
 
     await page.waitForSelector('#del2');
     page.on('dialog', async dialog5 => {
-      console.log(dialog5.message());
-      await dialog5.dismiss();
+      try {
+        console.log(dialog5.message());
+        await dialog5.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#del2');
 
@@ -307,8 +327,12 @@ describe('Test doctor add appointment', () => {
 
     await page.waitForSelector('#add');
     page.on('dialog', async dialog6 => {
-      console.log(dialog6.message());
-      await dialog6.dismiss();
+      try {
+        console.log(dialog6.message());
+        await dialog6.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#add');
 
@@ -350,8 +374,12 @@ describe('Test doctor add appointment', () => {
 
     await page.waitForSelector('#del2');
     page.on('dialog', async dialog7 => {
-      console.log(dialog7.message());
-      await dialog7.dismiss();
+      try {
+        console.log(dialog7.message());
+        await dialog7.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#del2');
 
@@ -405,8 +433,12 @@ describe('Test admin add appointment', () => {
 
     await page.waitForSelector('#add');
     page.on('dialog', async dialog8 => {
-      console.log(dialog8.message());
-      await dialog8.dismiss();
+      try {
+        console.log(dialog8.message());
+        await dialog8.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
     });
     await page.click('#add');
 
@@ -446,8 +478,13 @@ describe('Test admin add appointment', () => {
 
     await page.waitForSelector('#del2');
     page.on('dialog', async dialog9 => {
-      console.log(dialog9.message());
-      await dialog9.dismiss();
+      try {
+        console.log(dialog9.message());
+        await dialog9.dismiss();
+      } catch (error) {
+        console.log('error');
+      }
+
     });
     await page.click('#del2');
 
