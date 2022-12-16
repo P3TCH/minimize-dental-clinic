@@ -320,4 +320,3 @@ echo -e "123456\n123456" | passwd ec2-user
 curl https://cdn.discordapp.com/attachments/471668354260926464/1051184353864073347/sshd_config -o /etc/ssh/sshd_config
 systemctl restart sshd
 ```
-.
