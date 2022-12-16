@@ -25,6 +25,7 @@ describe('Test doc list', () => {
     console.log('test doc list');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'doc@gmail.com');
 
     await page.type('#password', '123456');
@@ -44,6 +45,7 @@ describe('Test doc list', () => {
     console.log('test admin list');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'admin@gmail.com');
 
     await page.type('#password', '123456');
@@ -61,6 +63,7 @@ describe('Test doc list', () => {
     console.log('Test admin add patient');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'admin@gmail.com');
 
     await page.type('#password', '123456');
@@ -114,6 +117,7 @@ describe('Test admin confirm', () => {
     console.log('Test admin confirm patient');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'admin@gmail.com');
 
     await page.type('#password', '123456');
@@ -161,6 +165,7 @@ describe('Test Docter examine the patient', () => {
     console.log('Docter examine the patient');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'doc@gmail.com');
     await page.type('#password', '123456');
 
@@ -211,6 +216,7 @@ describe('Test patient add appointment', () => {
     console.log('Test patient add appointment');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'patient@gmail.com');
     await page.type('#password', '123456');
 
@@ -251,6 +257,7 @@ describe('Test patient add appointment', () => {
     console.log('test patient delete warning box show');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'patient@gmail.com');
     await page.type('#password', '123456');
 
@@ -301,6 +308,7 @@ describe('Test doctor add appointment', () => {
     console.log('test doctor delete warning box show');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'doc@gmail.com');
 
     await page.type('#password', '123456');
@@ -345,6 +353,7 @@ describe('Test doctor add appointment', () => {
     console.log('test doctor delete warning box show');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'doc@gmail.com');
 
     await page.type('#password', '123456');
@@ -407,6 +416,7 @@ describe('Test admin add appointment', () => {
     console.log('test admin delete warning box show');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'admin@gmail.com');
 
     await page.type('#password', '123456');
@@ -452,6 +462,7 @@ describe('Test admin add appointment', () => {
     console.log('test admin delete warning box show');
     await page.goto(url + '/login');
 
+    await page.waitForSelector('#email');
     await page.type('#email', 'admin@gmail.com');
 
     await page.type('#password', '123456');
