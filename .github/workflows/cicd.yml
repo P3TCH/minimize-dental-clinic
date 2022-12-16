@@ -29,10 +29,9 @@ jobs:
           docker ps -a
           touch setup
           sudo service mysql start
-          echo 'docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456' >> setup
-          echo 'docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456' >> setup
-          echo 'docker exec -i mydb mysql -u root -p123456 dentist < /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/dentist.sql' >> setup
-          bash setup
+          docker exec -i mydb mysql -e "CREATE DATABASE dentist" -p123456
+          docker exec -i mydb mysql -e "FLUSH PRIVILEGES" -p123456
+          docker exec -i mydb mysql -u root -p123456 dentist < /home/runner/work/minimize-dental-clinic/minimize-dental-clinic/dentist.sql
           echo 'Started service'
 
       - name: Start server
