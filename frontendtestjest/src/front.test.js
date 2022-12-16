@@ -56,6 +56,7 @@ describe('Test doc list', () => {
     await page.waitForSelector('#docapp');
     await page.click('#docapp');
 
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 
@@ -92,8 +93,7 @@ describe('Test doc list', () => {
     });
     await page.click('#add');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 
@@ -141,8 +141,7 @@ describe('Test admin confirm', () => {
     });
     await page.click('#em_confirm');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 });
@@ -192,8 +191,7 @@ describe('Test Docter examine the patient', () => {
     });
     await page.click('#doc_check_confirm');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 });
@@ -250,6 +248,8 @@ describe('Test patient add appointment', () => {
         console.log('error');
       }
     });
+
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 
@@ -285,8 +285,7 @@ describe('Test patient add appointment', () => {
     });
     await page.click('#del2');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 });
@@ -344,7 +343,7 @@ describe('Test doctor add appointment', () => {
     });
     await page.click('#add');
 
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 
@@ -392,8 +391,7 @@ describe('Test doctor add appointment', () => {
     });
     await page.click('#del2');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
 
   });
@@ -452,8 +450,7 @@ describe('Test admin add appointment', () => {
     });
     await page.click('#add');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 
@@ -499,8 +496,7 @@ describe('Test admin add appointment', () => {
     });
     await page.click('#del2');
 
-
-
+    await page.waitForTimeout(2000);
     await page.goto(url + '/logout');
   });
 });
