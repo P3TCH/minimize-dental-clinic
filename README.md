@@ -305,7 +305,7 @@ npm test
 19 Oct 2022 23:17 => Add shell script auto install  
 
 ## ROLE
-สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing, Docker, CICD
+สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing, Docker, CICD  
 นายอัยการ เขมะสถิตย์ (QA) End-to-end Testing, Ui Testing, Api Testing  
 
 ## COMMAND
