@@ -262,52 +262,6 @@ webdriver-manager start
 npm test
 ```
 
-## SPRINT 1
-| To Do | Doing | Done | Automate Tested |
-|-------|-------|------|-----------------|
-|-|-|เพิมเมนูของแพทย์ ให้สามารถดูข้อมูลหมอ และ บุคลากรได้| ✓ |
-|-|-|ฟังชั่นคอมเฟิร์มคนไข้ของหมอ ก่อนที่จะตรวจ| ✗ |
-|-|-|แสดงนัดหมายที่รอยืนยันจากแพทย์ ในหน้าตารางนัดหมายของหมอ| ✗ |
-|-|-|แก้ไข Backend เวลาเพิ่มนัดหมาย ให้แสดงสถานะเป็น รอยืนยัน| ✗ |
-|-|-|กด Enter แล้ว Login ได้| ✗ |
-
-
-## SPRINT 2
-| To Do | Doing | Done | Automate Tested |
-|-------|-------|------|-----------------|
-|-|-|แยกรายการประวัติการรักษาของคนไข้ทั้งหมดเป็นหน้าใหม่ (ของหมอ)| ✓ |
-|-|-|แยกรายการประวัติการรักษาของคนไข้ทั้งหมดเป็นหน้าใหม่ (ผู้ดูแล)| ✓ |
-|-|-|แยกหน้าการตรวจเป็นหน้าใหม่| ✓ |
-|-|-|เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของหมอ| ✓ |
-|-|-|เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของพนักงาน| ✓ |
-|-|-|เพิ่มกล่องแจ้งเตือนเวลายกเลิกนัดหมายของคนไข้| ✓ |
-|-|-|เพิ่มคอมเฟิร์มนัดหมายของคนไข้ สำหรับหน้าบุคลากร| ✓ |
-
-## SPRINT 3
-| To Do | Doing | Done | Automate Tested |
-|-------|-------|------|-----------------|
-|-|-|เพิ่มสีพื้นหลังเพื่อให้ง่ายต่อการอ่าน (ของหมอ)| ✓ |
-|-|-|เพิ่มสีพื้นหลังเพื่อให้ง่ายต่อการอ่าน (ผู้ดูแล)| ✓ |
-|-|-|เพิ่ม handle เมื่อใส่วันที่ก่อนหน้าวันนี้ เพราะไม่สามารถจองย้อนหลังได้| ✓ |
-|-|-|เพิ่ม handle เมื่อใส่เวลาไม่ถูกต้อง ใส่เกิน 24 ชั่วโมง หรือไม่ถูกแพทเทิ้ล| ✓ |
-
-## WORKING LOG
-5 Oct 2022 XX:XX => Create automated test for backend api (with jest & supertest)  
-7 Oct 2022 21:00 => Fix bug hyperlink homep.html (user pages)  
-7 Oct 2022 22:30 => Update Setup Guide  
-8 Oct 2022 01:23 => Create treatment history list page for doctor and administrator  
-8 Oct 2022 01:25 => add new POST api name "getalluser" for get username (backend)  
-8 Oct 2022 01:32 => edit home page for doctor and adminstrator, add button view treatment history  
-8 Oct 2022 01:38 => Remove treatment history list from appoinment page (doctor page)  
-9 Oct 2022 01:XX => Create new test end-to-end  
-10 Oct 2022 18:19 => Fix frontend test (protractor)  
-17 Oct 2022 XX:XX => All sprint 2 done and all test of sprint 2 done !!  
-19 Oct 2022 23:17 => Add shell script auto install  
-
-## ROLE
-สรวิศ นามสีฐาน (Dev) Frontend, Backend, Api Testing, Docker, CICD  
-นายอัยการ เขมะสถิตย์ (QA) End-to-end Testing, Ui Testing, Api Testing  
-
 ## COMMAND
 - runserver
 ```shell
